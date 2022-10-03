@@ -77,7 +77,7 @@ export interface Statistics {
   commentCount: string;
 }
 
-export interface Item {
+export interface Video {
   kind: string;
   etag: string;
   id: string;
@@ -89,5 +89,5 @@ export interface Data {
   kind: string;
   etag: string;
   pageInfo: PageInfo;
-  items: Item[];
+  items: Video[];
 }
