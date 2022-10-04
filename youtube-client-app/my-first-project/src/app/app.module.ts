@@ -4,8 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { SearchResultsComponent } from './search/search-results/searchResults.component';
-import { SearchItemsComponent } from './search/search-item/searchItem.component';
+import { SearchResultsComponent } from './search/search-results/search-results.component';
+import { SearchItemsComponent } from './search/search-item/search-item.component';
 
 @NgModule({
   declarations: [
