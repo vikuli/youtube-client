@@ -1,0 +1,154 @@
+.header {
+  width: 100vw;
+  background-color: #E5E5E5;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 50px;
+
+  .logo-img {
+    width: 100%;
+  }
+}
+
+.search-field {
+  display: flex;
+
+  .search-input {
+    width: 400px;
+    height: 24px;
+    border: none;
+    background-color: #EFEFEF;
+    padding: 0 5px;
+    font-size: 12px;
+    line-height: 14px;
+    color: #333333;
+  }
+
+  .search-button {
+    width: 80px;
+    height: 24px;
+    background-color: #2F80ED;
+    border-radius: 0px 4px 4px 0px;
+    border: none;
+    font-size: 12px;
+    line-height: 14px;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+  }
+
+  .search-button:hover {
+    filter: drop-shadow(2px 0px 4px #2F80ED);
+  }
+}
+
+.setting-button {
+  height: 24px;
+  width: 24px;
+  background-color: #2F80ED;
+  border: none;
+  border-radius: 5px;
+  padding: 4.5px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+
+  .setting-button-img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.setting-button:hover {
+  filter: drop-shadow(2px 0px 4px #2F80ED);
+}
+
+.login {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .user-name {
+    font-size: 12px;
+    line-height: 14px;
+    color: #4F4F4F;
+  }
+
+  .avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+  }
+
+  .avatar:hover {
+    filter: drop-shadow(2px 2px 4px rgba(47, 128, 237, 0.25));
+  }
+}
+
+.settings {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  line-height: 14px;
+  color: #2F80ED;
+}
+
+.sort-opions {
+  color: #929292;
+}
+
+.sort-options-list {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  .sort-options-item {
+    cursor: pointer;
+  }
+
+  .sort-options-item:active {
+    text-decoration-line: underline;
+  }
+
+  .sort-options-item-active {
+    text-decoration-line: underline;
+  }
+
+  .key-word {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: default;
+  }
+
+  .search-in-results {
+    height: 20px;
+    width: 150px;
+    color: #333333;
+    border: none;
+  }
+}

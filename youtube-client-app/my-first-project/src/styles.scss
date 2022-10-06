@@ -1,1 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
+/* roboto-regular - latin */
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""),
+    url("assets/fonts/roboto-v30-latin-regular.woff2") format("woff2"),
+    url("assets/fonts/roboto-v30-latin-regular.woff") format("woff");
+}
+/* roboto-700 - latin */
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("assets/fonts/roboto-v30-latin-700.woff2") format("woff2"),
+    url("assets/fonts/roboto-v30-latin-700.woff") format("woff");
+}
+
+$font-family: 'Roboto';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family;
+  margin: 0;
+}
+
+input {
+  font-family: $font-family;
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  font-family: $font-family;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
