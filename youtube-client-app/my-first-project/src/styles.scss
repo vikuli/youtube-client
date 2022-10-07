@@ -17,6 +17,8 @@
 }
 
 $font-family: 'Roboto';
+$font-size: 12px;
+$line-height: 14px;
 
 * {
   box-sizing: border-box;
@@ -24,11 +26,15 @@ $font-family: 'Roboto';
 
 body {
   font-family: $font-family;
+  font-size: $font-size;
+  line-height: $line-height;
   margin: 0;
 }
 
 input {
   font-family: $font-family;
+  font-size: $font-size;
+  line-height: $line-height;
 }
 
 input:focus {
@@ -37,6 +43,8 @@ input:focus {
 
 button {
   font-family: $font-family;
+  font-size: $font-size;
+  line-height: $line-height;
 }
 
 ul {
