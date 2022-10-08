@@ -1,45 +1,47 @@
 <header class="header">
-  <div class="search">
-    <div class="search-wrapper">
-      <div class="logo">
-        <img src="../../assets/icon/logo.png" alt="logo" class="logo-img" />
+  <div class="header-wrapper">
+    <div class="search">
+      <div class="search-wrapper">
+        <div class="logo">
+          <img src="../../assets/icon/logo.png" alt="logo" class="logo-img" />
+        </div>
+        <div class="search-field">
+          <input
+            type="text"
+            placeholder="What are you want to find out?"
+            class="search-input"
+            autofocus
+            autocomplete="off"
+          />
+          <button class="search-button">search</button>
+        </div>
+        <button class="setting-button">
+          <img
+            src="../../assets/icon/settings-icon.svg"
+            alt="setting"
+            class="setting-button-img"
+          />
+        </button>
       </div>
-      <div class="search-field">
-        <input
-          type="text"
-          placeholder="What are you want to find out?"
-          class="search-input"
-          autofocus
-          autocomplete="off"
-        />
-        <button class="search-button">search</button>
-      </div>
-      <button class="setting-button">
+      <div class="login">
+        <p class="user-name">Your Name</p>
         <img
-          src="../../assets/icon/settings-icon.svg"
-          alt="setting"
-          class="setting-button-img"
+          src="../../assets/icon/avatar-icon.svg"
+          alt="avatar"
+          class="avatar"
         />
-      </button>
+      </div>
     </div>
-    <div class="login">
-      <p class="user-name">Your Name</p>
-      <img
-        src="../../assets/icon/avatar-icon.svg"
-        alt="avatar"
-        class="avatar"
-      />
+    <div class="settings">
+      <p class="sort-opions">Sorting by:</p>
+      <ul class="sort-options-list">
+        <li class="sort-options-item date">date</li>
+        <li class="sort-options-item count-of-view">count of views</li>
+        <li class="key-word">
+          <span class="key-word-title">by word or sentance</span>
+          <input type="text" class="search-in-results" />
+        </li>
+      </ul>
     </div>
-  </div>
-  <div class="settings">
-    <p class="sort-opions">Sorting by:</p>
-    <ul class="sort-options-list">
-      <li class="sort-options-item date">date</li>
-      <li class="sort-options-item count-of-view">count of views</li>
-      <li class="key-word">
-        <span class="key-word-title">by word or sentance</span>
-        <input type="text" class="search-in-results">
-      </li>
-    </ul>
   </div>
 </header>
