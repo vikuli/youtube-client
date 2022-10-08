@@ -6,4 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 
-export class HeaderComponent {}
+export class HeaderComponent {
+  isShowed: boolean = true;
+  showSettings() {
+    this.isShowed = !this.isShowed;
+  }
+}
