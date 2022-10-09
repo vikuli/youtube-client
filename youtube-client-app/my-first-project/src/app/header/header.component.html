@@ -15,7 +15,7 @@
           />
           <button class="search-button">search</button>
         </div>
-        <button class="setting-button" (click) = 'showSettings()'>
+        <button class="setting-button" (click)="showSettings()">
           <img
             src="../../assets/icon/settings-icon.svg"
             alt="setting"
@@ -32,11 +32,23 @@
         />
       </div>
     </div>
-    <div class="settings" *ngIf = '!isShowed'>
+    <div class="settings" *ngIf="!isShowed">
       <p class="sort-opions">Sorting by:</p>
       <ul class="sort-options-list">
-        <li class="sort-options-item date">date</li>
-        <li class="sort-options-item count-of-view">count of views</li>
+        <li
+          class="sort-options-item date"
+          [ngClass]="{ active: activeDate }"
+          (click)="activateDate()"
+        >
+          date
+        </li>
+        <li
+          class="sort-options-item count-of-view"
+          [ngClass]="{ active: activeView }"
+          (click)="activateView()"
+        >
+          count of views
+        </li>
         <li class="key-word">
           <span class="key-word-title">by word or sentance</span>
           <input type="text" class="search-in-results" />

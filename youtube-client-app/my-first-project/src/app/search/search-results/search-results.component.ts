@@ -6,4 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./search-results.component.scss'],
 })
 
-export class SearchResultsComponent {}
+export class SearchResultsComponent {
+  
+}
