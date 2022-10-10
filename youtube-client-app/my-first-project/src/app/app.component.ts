@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { VideoService } from './services/video.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'my-first-project';
+  constructor(public videoService: VideoService){}
 }

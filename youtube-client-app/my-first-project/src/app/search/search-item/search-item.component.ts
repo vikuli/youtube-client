@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { HeaderComponent } from 'src/app/header/header.component';
+import { VideoService } from 'src/app/services/video.service';
 import { Video } from '../search-item.model';
 import { data } from '../search-response.model';
 
@@ -9,9 +11,10 @@ import { data } from '../search-response.model';
 })
 
 export class SearchItemsComponent {
-  cards: Video[] = data.items;
   color: string = '';
   currentDate: Date = new Date();
+  constructor( public videoService: VideoService ) {}
+
   changeBorder(card: Video) {
     const publicationDate = new Date(card.snippet.publishedAt);
     let timeFromPublication = Math.floor((this.currentDate.getTime() - publicationDate.getTime()) / 1000 / 60 / 60 / 24);

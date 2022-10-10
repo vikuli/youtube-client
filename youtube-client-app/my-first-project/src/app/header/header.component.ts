@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { VideoService } from '../services/video.service';
 
 @Component({
   selector: 'app-header',
@@ -9,6 +10,10 @@ export class HeaderComponent {
   isShowed: boolean = true;
   activeDate: boolean = false;
   activeView: boolean = false;
+  request: string = '';
+
+  constructor(public videoService: VideoService){}
+
   showSettings() {
     this.isShowed = !this.isShowed;
   }

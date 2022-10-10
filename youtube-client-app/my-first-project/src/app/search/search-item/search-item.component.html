@@ -1,8 +1,12 @@
 <main class="main">
-  <div class="card" *ngFor = 'let card of cards' [style.border-bottom-color]="changeBorder(card)">
+  <div
+    class="card"
+    *ngFor="let card of videoService.showVideos(videoService.getRequest)"
+    [style.border-bottom-color]="changeBorder(card)"
+  >
     <div class="card-content">
       <img
-        src='{{card.snippet.thumbnails.medium.url}}'
+        src="{{ card.snippet.thumbnails.medium.url }}"
         alt="preview"
         class="card-preview"
       />
@@ -13,7 +17,7 @@
             alt="view"
             class="view-icon"
           />
-          <span class="view-counter">{{card.statistics.viewCount}}</span>
+          <span class="view-counter">{{ card.statistics.viewCount }}</span>
         </li>
         <li class="card-panel-item">
           <img
@@ -21,7 +25,7 @@
             alt="like"
             class="like-icon"
           />
-          <span class="like-counter">{{card.statistics.likeCount}}</span>
+          <span class="like-counter">{{ card.statistics.likeCount }}</span>
         </li>
         <li class="card-panel-item">
           <img
@@ -29,7 +33,9 @@
             alt="dislike"
             class="dislike-icon"
           />
-          <span class="dislike-counter">{{card.statistics.dislikeCount}}</span>
+          <span class="dislike-counter">{{
+            card.statistics.dislikeCount
+          }}</span>
         </li>
         <li class="card-panel-item">
           <img
@@ -37,10 +43,12 @@
             alt="comment"
             class="comment-icon"
           />
-          <span class="comment-counter">{{card.statistics.commentCount}}</span>
+          <span class="comment-counter">{{
+            card.statistics.commentCount
+          }}</span>
         </li>
       </ul>
-      <h1 class="card-title">{{card.snippet.title}}</h1>
+      <h1 class="card-title">{{ card.snippet.title }}</h1>
     </div>
     <button class="card-button">more...</button>
   </div>
