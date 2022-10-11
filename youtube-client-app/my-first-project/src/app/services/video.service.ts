@@ -8,12 +8,14 @@ import { data } from '../search/search-response.model';
 
 export class VideoService {
   cards: Video[] = data.items;
-  request: string = '';
-  upDownView: string = '';
-  upDownDate: string = '';
-  additionalRequest: string = '';
 
-  constructor() {}
+  request: string = '';
+
+  upDownView: string = '';
+
+  upDownDate: string = '';
+
+  additionalRequest: string = '';
 
   get getRequest() {
     return this.request;

@@ -8,5 +8,6 @@ import { VideoService } from './services/video.service';
 })
 export class AppComponent {
   title = 'my-first-project';
-  constructor(public videoService: VideoService){}
+
+  constructor(public videoService: VideoService) {}
 }
