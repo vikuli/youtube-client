@@ -1,7 +1,10 @@
-<main class="main">
+<main class="main" *ngIf="request()">
+  <h1 class="not-found-message" *ngIf="!showVideos().length">
+    Sorry we didn't find anything :(
+  </h1>
   <div
     class="card"
-    *ngFor="let card of videoService.showVideos(videoService.getRequest)"
+    *ngFor="let card of showVideos()"
     [style.border-bottom-color]="changeBorder(card)"
   >
     <div class="card-content">
