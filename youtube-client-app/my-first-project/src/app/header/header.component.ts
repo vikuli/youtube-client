@@ -20,10 +20,6 @@ export class HeaderComponent {
 
   constructor(public videoService: VideoService) {}
 
-  consol(searchInResults: string) {
-    console.log('search ' + searchInResults);
-  }
-
   showSettings() {
     this.isShowed = !this.isShowed;
   }
