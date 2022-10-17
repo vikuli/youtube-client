@@ -80,22 +80,22 @@ export class SearchItemsComponent {
     if (this.upDownView() === '↓') {
       if (this.additionalRequest()) {
         this.searchResult = this.filterVideo().sort(
-          (a, b) => +a.statistics.viewCount - +b.statistics.viewCount,
+          (a, b) => Number(a.statistics.viewCount) - Number(b.statistics.viewCount),
         );
       } else {
         this.searchResult = this.searchResult.sort(
-          (a, b) => +a.statistics.viewCount - +b.statistics.viewCount,
+          (a, b) => Number(a.statistics.viewCount) - Number(b.statistics.viewCount),
         );
       }
     }
     if (this.upDownView() === '↑') {
       if (this.additionalRequest()) {
         this.searchResult = this.filterVideo().sort(
-          (a, b) => +b.statistics.viewCount - +a.statistics.viewCount,
+          (a, b) => Number(b.statistics.viewCount) - Number(a.statistics.viewCount),
         );
       } else {
         this.searchResult = this.searchResult.sort(
-          (a, b) => +b.statistics.viewCount - +a.statistics.viewCount,
+          (a, b) => Number(b.statistics.viewCount) - Number(a.statistics.viewCount),
         );
       }
     }
