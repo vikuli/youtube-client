@@ -3,7 +3,7 @@ import { VideoService } from 'src/app/services/video.service';
 import { Video } from '../search-item.model';
 
 @Component({
-  selector: '<app-search-item></app-search-item>',
+  selector: 'app-search-item',
   templateUrl: './search-item.component.html',
   styleUrls: ['./search-item.component.scss'],
 })
