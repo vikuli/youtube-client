@@ -1,4 +1,4 @@
-<main class="main" *ngIf="request()">
+<main class="main" *ngIf="this.videoService.request">
   <h1 class="not-found-message" *ngIf="!showVideos().length">
     Sorry we didn't find anything :(
   </h1>

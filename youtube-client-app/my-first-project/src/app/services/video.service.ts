@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Video } from '../search/search-item.model';
 import { data } from '../search/search-response.model';
+import { SortOrder } from '../utils/sort-order';
 
 @Injectable({
   providedIn: 'root',
@@ -8,54 +9,43 @@ import { data } from '../search/search-response.model';
 
 export class VideoService {
   cards: Video[] = data.items;
-
   request: string = '';
-
-  upDownView: string = '';
-
-  upDownDate: string = '';
-
+  sortOrderByDate: string = SortOrder.default;
+  sortOrderByView: string = SortOrder.default;
   additionalRequest: string = '';
 
-  get getRequest() {
-    return this.request;
+  constructor() {
+    this.request;
+    this.sortOrderByDate;
+    this.sortOrderByView;
+    this.additionalRequest;
   }
 
-  get getUpDownDate() {
-    return this.upDownDate;
-  }
-
-  get getUpDownView() {
-    return this.upDownView;
-  }
-
-  get getAdditionalRequest() {
-    return this.additionalRequest;
-  }
-
-  showVideos(request: string) {
+  getRequest(request: string) {
     this.request = request;
-    return this.cards;
   }
 
-  sortByDate(upDownDate: string) {
-    this.upDownView = '';
-    if (!upDownDate) this.upDownDate = '↓';
-    if (upDownDate === '↓') this.upDownDate = '↑';
-    if (upDownDate === '↑') this.upDownDate = '↓';
-    return this.cards;
+  getSortOrderByDate(sortOrderByDate: string) {
+    this.sortOrderByView = SortOrder.default;
+    if (sortOrderByDate === SortOrder.default)
+      this.sortOrderByDate = SortOrder.ASC;
+    if (sortOrderByDate === SortOrder.ASC)
+      this.sortOrderByDate = SortOrder.DESC;
+    if (sortOrderByDate === SortOrder.DESC)
+      this.sortOrderByDate = SortOrder.ASC;
   }
 
-  sortByView(upDownView: string) {
-    this.upDownDate = '';
-    if (!upDownView) this.upDownView = '↓';
-    if (upDownView === '↓') this.upDownView = '↑';
-    if (upDownView === '↑') this.upDownView = '↓';
-    return this.cards;
+  getSortOrderByView(sortOrderByView: string) {
+    this.sortOrderByDate = SortOrder.default;
+    if (sortOrderByView === SortOrder.default)
+      this.sortOrderByView = SortOrder.ASC;
+    if (sortOrderByView === SortOrder.ASC)
+      this.sortOrderByView = SortOrder.DESC;
+    if (sortOrderByView === SortOrder.DESC)
+      this.sortOrderByView = SortOrder.ASC;
   }
 
-  filterVideo(additionalRequest: string) {
+  getAdditionalRequest(additionalRequest: string) {
     this.additionalRequest = additionalRequest;
-    return this.cards;
   }
 }

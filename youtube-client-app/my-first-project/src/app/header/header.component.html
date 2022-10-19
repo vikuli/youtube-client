@@ -16,7 +16,7 @@
           />
           <button
             class="search-button"
-            (click)="videoService.showVideos(request)"
+            (click)="videoService.getRequest(request)"
           >
             search
           </button>
@@ -43,17 +43,19 @@
       <ul class="sort-options-list">
         <li
           class="sort-options-item date"
-          (click)="videoService.sortByDate(upDownDate)"
-          (click)="activateDate(upDownDate)"
+          (click)='videoService.getSortOrderByDate(sortOrderByDate)'
+          (click)='updateSortOrderByDate(sortOrderByDate)'
+          (click)='updateArrowForDate(sortOrderByDate)'
         >
-          date {{ upDownDate }}
+          date {{ arrowForDate }}
         </li>
         <li
           class="sort-options-item count-of-view"
-          (click)="videoService.sortByView(upDownView)"
-          (click)="activateView(upDownView)"
+          (click)='videoService.getSortOrderByView(sortOrderByView)'
+          (click)='updateSortOrderByView(sortOrderByView)'
+          (click)='updateArrowForView(sortOrderByView)'
         >
-          count of views {{ upDownView }}
+          count of views {{ arrowForView }}
         </li>
         <li class="key-word">
           <span class="key-word-title">by word or sentance</span>
@@ -61,7 +63,7 @@
             type="text"
             class="search-in-results"
             [(ngModel)]="additionalRequest"
-            (input)="videoService.filterVideo(additionalRequest)"
+            (input)="videoService.getAdditionalRequest(additionalRequest)"
           />
         </li>
       </ul>

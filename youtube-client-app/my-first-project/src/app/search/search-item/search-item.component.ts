@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { VideoService } from 'src/app/services/video.service';
+import { sortByDateASC, sortByDateDESC } from 'src/app/utils/sort-by-date';
+import { sortByViewASC, sortByViewDESC } from 'src/app/utils/sort-by-view';
+import { SortOrder } from 'src/app/utils/sort-order';
 import { Video } from '../search-item.model';
 
 @Component({
@@ -16,88 +19,52 @@ export class SearchItemsComponent {
 
   constructor(public videoService: VideoService) {}
 
-  request() {
-    return this.videoService.getRequest;
-  }
-
-  upDownDate() {
-    return this.videoService.getUpDownDate;
-  }
-
-  upDownView() {
-    return this.videoService.getUpDownView;
-  }
-
-  additionalRequest() {
-    return this.videoService.getAdditionalRequest;
-  }
-
   showVideos() {
     this.searchResult = this.videoService.cards.filter((card) =>
-      card.snippet.title.toLowerCase().includes(this.request().toLowerCase()),
+      card.snippet.title
+        .toLowerCase()
+        .includes(this.videoService.request.toLowerCase())
     );
-    if (this.upDownDate()) return this.sortByDate();
-    if (this.upDownView()) return this.sortByView();
-    if (this.additionalRequest()) return this.filterVideo();
+    if (this.videoService.sortOrderByDate !== SortOrder.default)
+      return this.sortByDate();
+    if (this.videoService.sortOrderByView !== SortOrder.default)
+      return this.sortByView();
+    if (this.videoService.additionalRequest) return this.filterVideo();
     return this.searchResult;
   }
 
+  filterVideo() {
+    return this.searchResult.filter((card) =>
+      card.snippet.title
+        .toLowerCase()
+        .includes(this.videoService.additionalRequest.toLowerCase())
+    );
+  }
+
   sortByDate() {
-    if (this.upDownDate() === '↓') {
-      if (this.additionalRequest()) {
-        this.searchResult = this.filterVideo().sort(
-          (a, b) =>
-            new Date(a.snippet.publishedAt).getTime() -
-            new Date(b.snippet.publishedAt).getTime(),
-        );
-      } else {
-        this.searchResult = this.searchResult.sort(
-          (a, b) =>
-            new Date(a.snippet.publishedAt).getTime() -
-            new Date(b.snippet.publishedAt).getTime(),
-        );
-      }
+    if (this.videoService.sortOrderByDate === SortOrder.ASC) {
+      if (this.videoService.additionalRequest)
+        this.searchResult = sortByDateASC(this.filterVideo());
+      this.searchResult = sortByDateASC(this.searchResult);
     }
-    if (this.upDownDate() === '↑') {
-      if (this.additionalRequest()) {
-        this.searchResult = this.filterVideo().sort(
-          (a, b) =>
-            new Date(b.snippet.publishedAt).getTime() -
-            new Date(a.snippet.publishedAt).getTime(),
-        );
-      } else {
-        this.searchResult = this.searchResult.sort(
-          (a, b) =>
-            new Date(b.snippet.publishedAt).getTime() -
-            new Date(a.snippet.publishedAt).getTime(),
-        );
-      }
+    if (this.videoService.sortOrderByDate === SortOrder.DESC) {
+      if (this.videoService.additionalRequest)
+        this.searchResult = sortByDateDESC(this.filterVideo());
+      this.searchResult = sortByDateDESC(this.searchResult);
     }
     return this.searchResult;
   }
 
   sortByView() {
-    if (this.upDownView() === '↓') {
-      if (this.additionalRequest()) {
-        this.searchResult = this.filterVideo().sort(
-          (a, b) => Number(a.statistics.viewCount) - Number(b.statistics.viewCount),
-        );
-      } else {
-        this.searchResult = this.searchResult.sort(
-          (a, b) => Number(a.statistics.viewCount) - Number(b.statistics.viewCount),
-        );
-      }
+    if (this.videoService.sortOrderByView === SortOrder.ASC) {
+      if (this.videoService.additionalRequest)
+        this.searchResult = sortByViewASC(this.filterVideo());
+      this.searchResult = sortByViewASC(this.searchResult);
     }
-    if (this.upDownView() === '↑') {
-      if (this.additionalRequest()) {
-        this.searchResult = this.filterVideo().sort(
-          (a, b) => Number(b.statistics.viewCount) - Number(a.statistics.viewCount),
-        );
-      } else {
-        this.searchResult = this.searchResult.sort(
-          (a, b) => Number(b.statistics.viewCount) - Number(a.statistics.viewCount),
-        );
-      }
+    if (this.videoService.sortOrderByView === SortOrder.DESC) {
+      if (this.videoService.additionalRequest)
+        this.searchResult = sortByViewDESC(this.filterVideo());
+      this.searchResult = sortByViewDESC(this.searchResult);
     }
     return this.searchResult;
   }
@@ -109,7 +76,7 @@ export class SearchItemsComponent {
         1000 /
         60 /
         60 /
-        24,
+        24
     );
     if (timeFromPublication <= 7) this.color = '#2F80ED';
     if (timeFromPublication > 7 && timeFromPublication <= 31)
@@ -118,13 +85,5 @@ export class SearchItemsComponent {
       this.color = '#F2C94C';
     if (timeFromPublication > 182) this.color = '#EB5757';
     return this.color;
-  }
-
-  filterVideo() {
-    return this.searchResult.filter((card) =>
-      card.snippet.title
-        .toLowerCase()
-        .includes(this.additionalRequest().toLowerCase()),
-    );
   }
 }
