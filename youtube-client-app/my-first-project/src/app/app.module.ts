@@ -19,5 +19,4 @@ import { SearchItemsComponent } from './search/search-item/search-item.component
   providers: [],
   bootstrap: [AppComponent],
 })
-
 export class AppModule {}

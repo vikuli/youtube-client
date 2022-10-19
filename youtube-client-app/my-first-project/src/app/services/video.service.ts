@@ -6,7 +6,6 @@ import { SortOrder } from '../utils/sort-order';
 @Injectable({
   providedIn: 'root',
 })
-
 export class VideoService {
   cards: Video[] = data.items;
   request: string = '';

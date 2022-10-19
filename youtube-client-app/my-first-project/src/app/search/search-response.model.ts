@@ -13,7 +13,7 @@ export const data: Data = {
       etag: '"Fznwjl6JEQdo1MGvHOGaz_YanRU/tmmI1yiRrmLWlKikXk1gD3TXsUI"',
       id: 'YN8zNnV0sK8',
       snippet: {
-        publishedAt: '2019-05-30T12:42:19.000Z',
+        publishedAt: '2022-10-19T12:42:19.000Z',
         channelId: 'UCg8ss4xW9jASrqWGP30jXiw',
         title: 'Angular 8 - Быстрый курс за 60 минут',
         description:
@@ -151,7 +151,7 @@ export const data: Data = {
       etag: '"Fznwjl6JEQdo1MGvHOGaz_YanRU/6e0k9ik7TThWpqueHGOhTRIN1-A"',
       id: 'k5E2AVpwsko',
       snippet: {
-        publishedAt: '2017-09-05T16:48:15.000Z',
+        publishedAt: '2022-09-12T16:48:15.000Z',
         channelId: 'UCWv7vMbMWH4-V0ZXdmDpPBA',
         title:
           'Angular Tutorial for Beginners: Learn Angular from Scratch | Mosh',
@@ -235,7 +235,7 @@ export const data: Data = {
       etag: '"Fznwjl6JEQdo1MGvHOGaz_YanRU/cDwx4Ds5-J9CmiqmazUetzrLZKY"',
       id: 'Rf54BH35yrY',
       snippet: {
-        publishedAt: '2019-09-04T15:00:12.000Z',
+        publishedAt: '2022-10-18T15:00:12.000Z',
         channelId: 'UCg8ss4xW9jASrqWGP30jXiw',
         title: 'Angular 8 Основы. Полный Курс для начинающих',
         description:
@@ -392,7 +392,7 @@ export const data: Data = {
       etag: '"Fznwjl6JEQdo1MGvHOGaz_YanRU/GuGydXnkvpl-L4ntYhAaLNiseZ4"',
       id: 'VAkio68d51A',
       snippet: {
-        publishedAt: '2019-02-25T00:09:23.000Z',
+        publishedAt: '2022-08-01T00:09:23.000Z',
         channelId: 'UCZ9qFEC82qM6Pk-54Q4TVWA',
         title: 'What is Angular? (Explained for Beginners)',
         description:
@@ -543,7 +543,7 @@ export const data: Data = {
       etag: '"Fznwjl6JEQdo1MGvHOGaz_YanRU/96JEWzuOaAgaHrcnKhmatlZzPME"',
       id: 'rc3E4tplFCU',
       snippet: {
-        publishedAt: '2019-10-29T15:00:14.000Z',
+        publishedAt: '2022-07-30T15:00:14.000Z',
         channelId: 'UCg8ss4xW9jASrqWGP30jXiw',
         title: 'Angular 40 вопросов для собеседования',
         description:
@@ -621,7 +621,7 @@ export const data: Data = {
       etag: '"Fznwjl6JEQdo1MGvHOGaz_YanRU/pvVvPt5cchXjCoSYxodr18lOaEg"',
       id: 'NaZwVUHnmfE',
       snippet: {
-        publishedAt: '2019-06-19T16:06:13.000Z',
+        publishedAt: '2022-10-10T16:06:13.000Z',
         channelId: 'UCg8ss4xW9jASrqWGP30jXiw',
         title: 'Angular 8 + RxJS. Приложение Органайзер С Нуля (Для Опытных!)',
         description:

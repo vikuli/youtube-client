@@ -1,6 +1,6 @@
 .header {
   background-size: 100vw;
-  background: #E5E5E5;
+  background: #e5e5e5;
 }
 
 .header-wrapper {
@@ -41,7 +41,7 @@
     width: 400px;
     height: 24px;
     border: none;
-    background-color: #EFEFEF;
+    background-color: #efefef;
     padding: 0 5px;
     color: #333333;
   }
@@ -49,23 +49,23 @@
   .search-button {
     width: 80px;
     height: 24px;
-    background-color: #2F80ED;
+    background-color: #2f80ed;
     border-radius: 0px 4px 4px 0px;
     border: none;
-    color: #FFFFFF;
+    color: #ffffff;
     cursor: pointer;
     transition: 0.3s ease-in-out;
   }
 
   .search-button:hover {
-    filter: drop-shadow(2px 0px 4px #2F80ED);
+    filter: drop-shadow(2px 0px 4px #2f80ed);
   }
 }
 
 .setting-button {
   height: 24px;
   width: 24px;
-  background-color: #2F80ED;
+  background-color: #2f80ed;
   border: none;
   border-radius: 5px;
   padding: 4.5px;
@@ -79,7 +79,7 @@
 }
 
 .setting-button:hover {
-  filter: drop-shadow(2px 0px 4px #2F80ED);
+  filter: drop-shadow(2px 0px 4px #2f80ed);
 }
 
 .login {
@@ -88,7 +88,7 @@
   gap: 8px;
 
   .user-name {
-    color: #4F4F4F;
+    color: #4f4f4f;
   }
 
   .avatar {
@@ -111,7 +111,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #2F80ED;
+  color: #2f80ed;
 }
 
 .sort-opions {

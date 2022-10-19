@@ -13,8 +13,6 @@ import { Video } from '../search-item.model';
 export class SearchItemsComponent {
   color: string = '';
 
-  currentDate: Date = new Date();
-
   searchResult: Video[] = [];
 
   constructor(public videoService: VideoService) {}
@@ -70,20 +68,22 @@ export class SearchItemsComponent {
   }
 
   changeBorder(card: Video) {
+    const currentDate: Date = new Date();
     const publicationDate = new Date(card.snippet.publishedAt);
-    let timeFromPublication = Math.floor(
-      (this.currentDate.getTime() - publicationDate.getTime()) /
-        1000 /
-        60 /
-        60 /
-        24
+    let dayFromPublication = Math.floor(
+      (currentDate.getTime() - publicationDate.getTime()) / 1000 / 60 / 60 / 24
     );
-    if (timeFromPublication <= 7) this.color = '#2F80ED';
-    if (timeFromPublication > 7 && timeFromPublication <= 31)
-      this.color = '#27AE60';
-    if (timeFromPublication > 31 && timeFromPublication <= 182)
-      this.color = '#F2C94C';
-    if (timeFromPublication > 182) this.color = '#EB5757';
+    let monthFromPublication =
+      currentDate.getMonth() -
+      publicationDate.getMonth() +
+      12 * (currentDate.getFullYear() - publicationDate.getFullYear());
+    if (dayFromPublication <= 7) this.color = '#2F80ED';
+    if (dayFromPublication > 7) {
+      if (monthFromPublication <= 1) this.color = '#27AE60';
+      if (monthFromPublication > 1 && monthFromPublication <= 6)
+        this.color = '#F2C94C';
+      if (monthFromPublication > 6) this.color = '#EB5757';
+    }
     return this.color;
   }
 }
