@@ -7,6 +7,9 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { SearchResultsComponent } from './search/search-results/search-results.component';
 import { SearchItemsComponent } from './search/search-item/search-item.component';
+import { AuthorizationComponent } from './authorization/authorization.component';
+import { ErrorComponent } from './error/error.component';
+import { VideoDescriptionComponent } from './video-description/video-description.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +17,9 @@ import { SearchItemsComponent } from './search/search-item/search-item.component
     HeaderComponent,
     SearchResultsComponent,
     SearchItemsComponent,
+    AuthorizationComponent,
+    ErrorComponent,
+    VideoDescriptionComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
