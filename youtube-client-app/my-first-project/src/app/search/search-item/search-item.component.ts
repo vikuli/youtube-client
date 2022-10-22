@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { VideoDescriptionService } from 'src/app/services/video-description.service';
 import { VideoService } from 'src/app/services/video.service';
 import { sortByDateASC, sortByDateDESC } from 'src/app/utils/sort-by-date';
 import { sortByViewASC, sortByViewDESC } from 'src/app/utils/sort-by-view';
@@ -11,11 +13,14 @@ import { Video } from '../search-item.model';
   styleUrls: ['./search-item.component.scss'],
 })
 export class SearchItemsComponent {
-  color: string = '';
 
   searchResult: Video[] = [];
 
-  constructor(public videoService: VideoService) {}
+  constructor(
+    public videoService: VideoService,
+    public videoDescriptionService: VideoDescriptionService,
+    private router: Router
+    ) {}
 
   showVideos() {
     this.searchResult = this.videoService.cards.filter((card) =>
@@ -67,23 +72,7 @@ export class SearchItemsComponent {
     return this.searchResult;
   }
 
-  changeBorder(card: Video) {
-    const currentDate: Date = new Date();
-    const publicationDate = new Date(card.snippet.publishedAt);
-    let dayFromPublication = Math.floor(
-      (currentDate.getTime() - publicationDate.getTime()) / 1000 / 60 / 60 / 24
-    );
-    let monthFromPublication =
-      currentDate.getMonth() -
-      publicationDate.getMonth() +
-      12 * (currentDate.getFullYear() - publicationDate.getFullYear());
-    if (dayFromPublication <= 7) this.color = '#2F80ED';
-    if (dayFromPublication > 7) {
-      if (monthFromPublication <= 1) this.color = '#27AE60';
-      if (monthFromPublication > 1 && monthFromPublication <= 6)
-        this.color = '#F2C94C';
-      if (monthFromPublication > 6) this.color = '#EB5757';
-    }
-    return this.color;
+  goToDescription(card: Video) {
+    this.router.navigate(['/videos', card.id])
   }
 }

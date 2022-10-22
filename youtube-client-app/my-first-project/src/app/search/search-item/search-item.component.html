@@ -5,7 +5,7 @@
   <div
     class="card"
     *ngFor="let card of showVideos()"
-    [style.border-bottom-color]="changeBorder(card)"
+    [style.border-bottom-color]="this.videoDescriptionService.cardBorderColor(card)"
   >
     <div class="card-content">
       <img
@@ -45,6 +45,6 @@
       </ul>
       <h1 class="card-title">{{ card.snippet.title }}</h1>
     </div>
-    <button class="card-button">more...</button>
+    <button class="card-button" (click)="goToDescription(card)">more...</button>
   </div>
 </main>
