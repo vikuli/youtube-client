@@ -13,14 +13,13 @@ import { Video } from '../search-item.model';
   styleUrls: ['./search-item.component.scss'],
 })
 export class SearchItemsComponent {
-
   searchResult: Video[] = [];
 
   constructor(
     public videoService: VideoService,
     public videoDescriptionService: VideoDescriptionService,
     private router: Router
-    ) {}
+  ) {}
 
   showVideos() {
     this.searchResult = this.videoService.cards.filter((card) =>
@@ -73,6 +72,6 @@ export class SearchItemsComponent {
   }
 
   goToDescription(card: Video) {
-    this.router.navigate(['/videos', card.id])
+    this.router.navigate(['/videos', card.id]);
   }
 }

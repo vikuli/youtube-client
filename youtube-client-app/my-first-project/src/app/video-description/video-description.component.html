@@ -5,11 +5,17 @@
       [style.background-color]="
         this.videoDescriptionService.cardBorderColor(card)
       "
+      (click)="backToVideos()"
     >
       <img src="./assets/icon/back.svg" alt="back-button" />
     </button>
     <div class="full-card">
-      <div class="cover" [style.background-image] = "'url(' + card.snippet.thumbnails.maxres.url + ')'">
+      <div
+        class="cover"
+        [style.background-image]="
+          'url(' + card.snippet.thumbnails.maxres.url + ')'
+        "
+      >
         <img
           src="{{ card.snippet.thumbnails.maxres.url }}"
           alt="cover"
