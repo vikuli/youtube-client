@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { VideoService } from '../services/video.service';
-import { SortOrder } from '../utils/sort-order';
+import { SortOrder } from '../../youtube/utils/sort-order';
 
 @Component({
   selector: 'app-header',

@@ -1,11 +1,17 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Video } from 'src/app/data/interfaces';
-import { VideoDescriptionService } from 'src/app/services/video-description.service';
-import { VideoService } from 'src/app/services/video.service';
-import { sortByDateASC, sortByDateDESC } from 'src/app/utils/sort-by-date';
-import { sortByViewASC, sortByViewDESC } from 'src/app/utils/sort-by-view';
-import { SortOrder } from 'src/app/utils/sort-order';
+import { VideoDescriptionService } from 'src/app/youtube/services/video-description.service';
+import { VideoService } from 'src/app/core/services/video.service';
+import { Video } from 'src/app/youtube/data/interfaces';
+import {
+  sortByDateASC,
+  sortByDateDESC,
+} from 'src/app/youtube/utils/sort-by-date';
+import {
+  sortByViewASC,
+  sortByViewDESC,
+} from 'src/app/youtube/utils/sort-by-view';
+import { SortOrder } from 'src/app/youtube/utils/sort-order';
 
 @Component({
   selector: 'app-search-item',

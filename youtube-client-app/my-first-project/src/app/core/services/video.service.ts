@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Video } from '../data/interfaces';
-import { data } from '../data/videos-data';
-import { SortOrder } from '../utils/sort-order';
+import { Video } from '../../youtube/data/interfaces';
+import { data } from '../../youtube/data/videos-data';
+import { SortOrder } from '../../youtube/utils/sort-order';
 
 @Injectable({
   providedIn: 'root',

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { VideoService } from './services/video.service';
+import { VideoService } from './core/services/video.service';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +9,5 @@ import { VideoService } from './services/video.service';
 export class AppComponent {
   title = 'my-first-project';
 
-  constructor(public videoService: VideoService) {}
+  constructor() {}
 }

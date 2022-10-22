@@ -1,4 +1,4 @@
-import { Data } from "./interfaces";
+import { Data } from './interfaces';
 
 export const data: Data = {
   kind: 'youtube#videoListResponse',

@@ -1,4 +1,4 @@
-import { Video } from "../data/interfaces";
+import { Video } from '../data/interfaces';
 
 export function sortByViewASC(videos: Video[]) {
   const sortedVideos: Video[] = videos.sort(

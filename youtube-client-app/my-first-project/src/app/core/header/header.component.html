@@ -13,6 +13,7 @@
             autofocus
             autocomplete="off"
             [(ngModel)]="request"
+            (keydown.enter)="videoService.getRequest(request)"
           />
           <button
             class="search-button"

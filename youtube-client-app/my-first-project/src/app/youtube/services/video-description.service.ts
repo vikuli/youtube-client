@@ -2,19 +2,16 @@ import { Injectable } from '@angular/core';
 import { Video } from '../data/interfaces';
 import { data } from '../data/videos-data';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class VideoDescriptionService {
-
   cards: Video[] = data.items;
 
-  color:string = '';
+  color: string = '';
 
-  constructor() { }
+  constructor() {}
 
   getVideoByID(id: string): Video {
-    return this.cards.find(card => card.id === id) as Video
+    return this.cards.find((card) => card.id === id) as Video;
   }
 
   cardBorderColor(card: Video) {

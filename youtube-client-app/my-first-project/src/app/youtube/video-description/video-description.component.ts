@@ -22,8 +22,4 @@ export class VideoDescriptionComponent implements OnInit {
       console.log(params['id']);
     });
   }
-
-  backToVideos() {
-    this.router.navigate(['/videos']);
-  }
 }
