@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Video } from '../search/search-item.model';
+import { Video } from '../data/interfaces';
 import { VideoDescriptionService } from '../services/video-description.service';
 
 @Component({

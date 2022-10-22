@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Video } from '../search/search-item.model';
-import { data } from '../search/search-response.model';
+import { Video } from '../data/interfaces';
+import { data } from '../data/videos-data';
 import { SortOrder } from '../utils/sort-order';
 
 @Injectable({

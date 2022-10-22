@@ -1,4 +1,4 @@
-import { Video } from '../search/search-item.model';
+import { Video } from "../data/interfaces";
 
 export function sortByViewASC(videos: Video[]) {
   const sortedVideos: Video[] = videos.sort(
