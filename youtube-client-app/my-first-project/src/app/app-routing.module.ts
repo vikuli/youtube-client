@@ -3,12 +3,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { ErrorComponent } from './youtube/error/error.component';
 import { VideoDescriptionComponent } from './youtube/video-description/video-description.component';
 import { SearchItemsComponent } from './youtube/search-item/search-item.component';
+import { LoginComponent } from './authorization/login/login.component';
+import { AuthGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
-  //{path: '', component: SearchResultsComponent},
-  { path: 'videos', component: SearchItemsComponent },
-  { path: 'videos/:id', component: VideoDescriptionComponent },
-  { path: 'error', component: ErrorComponent },
+  { path: '', component: SearchItemsComponent, canActivate: [AuthGuard] },
+  { path: 'videos', component: SearchItemsComponent, canActivate: [AuthGuard] },
+  {
+    path: 'videos/:id',
+    component: VideoDescriptionComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: 'authorization', component: LoginComponent },
+  { path: 'error', component: ErrorComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '/error' },
 ];
 

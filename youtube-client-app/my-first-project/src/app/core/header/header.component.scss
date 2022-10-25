@@ -103,6 +103,17 @@
   .avatar:hover {
     filter: drop-shadow(2px 2px 4px rgba(47, 128, 237, 0.25));
   }
+
+  .logout {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+  }
+
+  .logout:hover {
+    filter: drop-shadow(1px 1px 3px #ff414b70);
+  }
 }
 
 .settings {

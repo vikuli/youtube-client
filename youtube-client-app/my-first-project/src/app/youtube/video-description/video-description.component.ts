@@ -19,7 +19,6 @@ export class VideoDescriptionComponent implements OnInit {
   ngOnInit(): void {
     this.rout.params.subscribe((params: Params) => {
       this.card = this.videoDescriptionService.getVideoByID(params['id']);
-      console.log(params['id']);
     });
   }
 }

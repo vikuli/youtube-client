@@ -3,15 +3,15 @@ import { Router } from '@angular/router';
 import { VideoDescriptionService } from 'src/app/youtube/services/video-description.service';
 import { VideoService } from 'src/app/core/services/video.service';
 import { Video } from 'src/app/youtube/data/interfaces';
+import { SortOrder } from 'src/app/shared/utils/sort-order';
 import {
   sortByDateASC,
   sortByDateDESC,
-} from 'src/app/youtube/utils/sort-by-date';
+} from 'src/app/shared/utils/sort-by-date';
 import {
   sortByViewASC,
   sortByViewDESC,
-} from 'src/app/youtube/utils/sort-by-view';
-import { SortOrder } from 'src/app/youtube/utils/sort-order';
+} from 'src/app/shared/utils/sort-by-view';
 
 @Component({
   selector: 'app-search-item',

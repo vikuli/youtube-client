@@ -4,13 +4,23 @@
     <div class="forms-field">
       <div class="login-field">
         <h6 class="login-title">login</h6>
-        <input type="text" class="auth-input login-input" />
+        <input type="text" class="auth-input login-input" [(ngModel)]="login" />
       </div>
       <div class="password-field">
         <h6 class="password-title">password</h6>
-        <input type="password" class="auth-input password-input" />
+        <input
+          type="password"
+          class="auth-input password-input"
+          [(ngModel)]="password"
+        />
       </div>
     </div>
-    <button class="auth-btn login-btn">Login</button>
+    <button
+      class="auth-btn login-btn"
+      (click)="updateLocalStorage()"
+      (click)="authService.logIn()"
+    >
+      Login
+    </button>
   </div>
 </main>

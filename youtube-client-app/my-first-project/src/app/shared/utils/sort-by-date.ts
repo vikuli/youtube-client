@@ -1,4 +1,4 @@
-import { Video } from '../data/interfaces';
+import { Video } from 'src/app/youtube/data/interfaces';
 
 export function sortByDateASC(videos: Video[]) {
   const sortedVideos: Video[] = videos.sort(

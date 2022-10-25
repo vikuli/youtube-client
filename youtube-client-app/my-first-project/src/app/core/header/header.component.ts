@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
+import { SortOrder } from 'src/app/shared/utils/sort-order';
+import { AuthService } from '../services/auth.service';
 import { VideoService } from '../services/video.service';
-import { SortOrder } from '../../youtube/utils/sort-order';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +17,10 @@ export class HeaderComponent {
   arrowForView: string = '';
   additionalRequest: string = '';
 
-  constructor(public videoService: VideoService) {
+  constructor(
+    public videoService: VideoService,
+    public authService: AuthService
+  ) {
     this.arrowForDate;
     this.arrowForView;
   }

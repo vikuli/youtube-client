@@ -18,6 +18,7 @@
           <button
             class="search-button"
             (click)="videoService.getRequest(request)"
+            routerLink="/videos"
           >
             search
           </button>
@@ -31,8 +32,15 @@
         </button>
       </div>
       <div class="login">
-        <p class="user-name">Your Name</p>
+        <p class="user-name">{{ authService.updateUserName() }}</p>
         <img src="./assets/icon/avatar-icon.svg" alt="avatar" class="avatar" />
+        <img
+          src="./assets/icon/logout.png"
+          alt="logout"
+          class="logout"
+          *ngIf="authService.showLogoutButton()"
+          (click)="authService.logOut()"
+        />
       </div>
     </div>
     <div class="settings" *ngIf="!isShowed">
