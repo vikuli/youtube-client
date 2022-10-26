@@ -8,16 +8,20 @@ import { data } from '../../youtube/data/videos-data';
 })
 export class VideoService {
   cards: Video[] = data.items;
+
   request: string = '';
+
   sortOrderByDate: string = SortOrder.default;
+
   sortOrderByView: string = SortOrder.default;
+
   additionalRequest: string = '';
 
   constructor() {
-    this.request;
-    this.sortOrderByDate;
-    this.sortOrderByView;
-    this.additionalRequest;
+    this.request = this.request;
+    this.sortOrderByDate = this.sortOrderByDate;
+    this.sortOrderByView = this.sortOrderByView;
+    this.additionalRequest = this.additionalRequest;
   }
 
   getRequest(request: string) {

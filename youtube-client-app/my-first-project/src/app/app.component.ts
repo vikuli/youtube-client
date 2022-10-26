@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { VideoService } from './core/services/video.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +7,4 @@ import { VideoService } from './core/services/video.service';
 })
 export class AppComponent {
   title = 'my-first-project';
-
-  constructor() {}
 }

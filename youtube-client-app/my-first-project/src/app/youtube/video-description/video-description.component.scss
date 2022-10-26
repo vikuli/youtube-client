@@ -2,13 +2,13 @@
   max-width: 1200px;
   margin: 0 auto;
   background-color: #ffffff;
-  padding: 45px 0;
+  padding: 45px 20px;
   display: flex;
   justify-content: center;
 }
 
 .full-card-wrapper {
-  width: 1200px;
+  max-width: 1160px;
   display: flex;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .full-card {
-  width: 1165px;
+  max-width: 1128px;
   height: 460px;
   background-color: #e5e5e5;
   filter: drop-shadow(5px 10px 10px rgba(47, 128, 237, 0.25));
@@ -36,7 +36,7 @@
 }
 
 .cover {
-  width: 730px;
+  width: 60%;
   height: 460px;
   border-radius: 0px 0px 0px 5px;
   background-repeat: no-repeat;
@@ -54,7 +54,7 @@
 }
 
 .video-description-wrapper {
-  width: calc(100% - 730px);
+  width: 40%;
   height: 100%;
   padding: 35px;
   box-shadow: 5px 5px 20px rgba(51, 51, 51, 0.25);

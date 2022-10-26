@@ -7,18 +7,26 @@ import { VideoDescriptionService } from '../services/video-description.service';
   selector: 'app-video-description',
   templateUrl: './video-description.component.html',
   styleUrls: ['./video-description.component.scss'],
+  providers: [VideoDescriptionService],
 })
 export class VideoDescriptionComponent implements OnInit {
   card!: Video;
+
   constructor(
     private rout: ActivatedRoute,
     public videoDescriptionService: VideoDescriptionService,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
     this.rout.params.subscribe((params: Params) => {
-      this.card = this.videoDescriptionService.getVideoByID(params['id']);
+      if (this.videoDescriptionService.getVideoByID(params['id'])) {
+        this.card = this.videoDescriptionService.getVideoByID(
+          params['id'],
+        ) as Video;
+      } else {
+        this.router.navigate(['/error']);
+      }
     });
   }
 }

@@ -8,6 +8,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
 })
 export class LoginComponent {
   login: string = '';
+
   password: string = '';
 
   constructor(public authService: AuthService) {}

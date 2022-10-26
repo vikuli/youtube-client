@@ -17,6 +17,7 @@ import {
   selector: 'app-search-item',
   templateUrl: './search-item.component.html',
   styleUrls: ['./search-item.component.scss'],
+  providers: [VideoDescriptionService],
 })
 export class SearchItemsComponent {
   searchResult: Video[] = [];
@@ -24,14 +25,14 @@ export class SearchItemsComponent {
   constructor(
     public videoService: VideoService,
     public videoDescriptionService: VideoDescriptionService,
-    private router: Router
+    private router: Router,
   ) {}
 
   showVideos() {
     this.searchResult = this.videoService.cards.filter((card) =>
       card.snippet.title
         .toLowerCase()
-        .includes(this.videoService.request.toLowerCase())
+        .includes(this.videoService.request.toLowerCase()),
     );
     if (this.videoService.sortOrderByDate !== SortOrder.default)
       return this.sortByDate();
@@ -45,7 +46,7 @@ export class SearchItemsComponent {
     return this.searchResult.filter((card) =>
       card.snippet.title
         .toLowerCase()
-        .includes(this.videoService.additionalRequest.toLowerCase())
+        .includes(this.videoService.additionalRequest.toLowerCase()),
     );
   }
 

@@ -10,19 +10,25 @@ import { VideoService } from '../services/video.service';
 })
 export class HeaderComponent {
   isShowed: boolean = true;
+
   request: string = '';
+
   sortOrderByDate: string = SortOrder.default;
+
   sortOrderByView: string = SortOrder.default;
+
   arrowForDate: string = '';
+
   arrowForView: string = '';
+
   additionalRequest: string = '';
 
   constructor(
     public videoService: VideoService,
-    public authService: AuthService
+    public authService: AuthService,
   ) {
-    this.arrowForDate;
-    this.arrowForView;
+    this.arrowForDate = this.arrowForDate;
+    this.arrowForView = this.arrowForView;
   }
 
   showSettings() {

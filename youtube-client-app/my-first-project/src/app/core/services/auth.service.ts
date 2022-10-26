@@ -6,11 +6,12 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   isAuthorized: boolean = false;
+
   userName: string = 'Your Name';
 
   constructor(private router: Router) {
-    this.isAuthorized;
-    this.userName;
+    this.isAuthorized = this.isAuthorized;
+    this.userName = this.userName;
   }
 
   updateUserName() {
@@ -26,9 +27,9 @@ export class AuthService {
   }
 
   logIn() {
-    this.isAuthorized;
-    this.userName;
-    this.router.navigate(['/']);
+    this.isAuthorized = this.isAuthorized;
+    this.userName = this.userName;
+    this.router.navigate(['/videos']);
   }
 
   logOut() {

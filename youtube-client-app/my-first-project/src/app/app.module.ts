@@ -1,22 +1,14 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { YoutubeModule } from './youtube/youtube.module';
-import { LoginComponent } from './authorization/login/login.component';
-import { CoreModule } from './core/core.module';
+import { HeaderComponent } from './core/header/header.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { ErrorComponent } from './youtube/error/error.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    CoreModule,
-    YoutubeModule,
-  ],
+  declarations: [AppComponent, HeaderComponent, ErrorComponent],
+  imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })

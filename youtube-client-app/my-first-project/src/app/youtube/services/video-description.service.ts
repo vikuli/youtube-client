@@ -8,17 +8,15 @@ export class VideoDescriptionService {
 
   color: string = '';
 
-  constructor() {}
-
-  getVideoByID(id: string): Video {
-    return this.cards.find((card) => card.id === id) as Video;
+  getVideoByID(id: string) {
+    return this.cards.find((card) => card.id === id);
   }
 
   cardBorderColor(card: Video) {
     const currentDate: Date = new Date();
     const publicationDate = new Date(card.snippet.publishedAt);
     let dayFromPublication = Math.floor(
-      (currentDate.getTime() - publicationDate.getTime()) / 1000 / 60 / 60 / 24
+      (currentDate.getTime() - publicationDate.getTime()) / 1000 / 60 / 60 / 24,
     );
     let monthFromPublication =
       currentDate.getMonth() -
