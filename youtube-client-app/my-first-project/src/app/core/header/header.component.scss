@@ -107,13 +107,38 @@
   .logout {
     width: 20px;
     height: 20px;
+    padding: 0;
+    background-color: transparent;
+    border: none;
     cursor: pointer;
     transition: 0.3s ease-in-out;
+
+    img {
+      width: 100%;
+    }
   }
 
   .logout:hover {
     filter: drop-shadow(1px 1px 3px #ff414b70);
   }
+
+ .admin {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+
+    img {
+      width: 100%;
+    }
+ }
+
+ .admin:hover {
+   filter: drop-shadow(2px 2px 4px rgba(47, 128, 237, 0.25));
+ }
 }
 
 .settings {

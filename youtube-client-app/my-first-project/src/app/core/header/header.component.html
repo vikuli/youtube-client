@@ -34,13 +34,16 @@
       <div class="login">
         <p class="user-name">{{ authService.updateUserName() }}</p>
         <img src="./assets/icon/avatar-icon.svg" alt="avatar" class="avatar" />
-        <img
-          src="./assets/icon/logout.png"
-          alt="logout"
-          class="logout"
+        <button class="admin" routerLink="/admin">
+          <img src="./assets/icon/add-video.png" alt="add-video" />
+        </button>
+        <button
           *ngIf="authService.showLogoutButton()"
           (click)="authService.logOut()"
-        />
+          class="logout"
+        >
+          <img src="./assets/icon/logout.png" alt="logout" />
+        </button>
       </div>
     </div>
     <div class="settings" *ngIf="!isShowed">
