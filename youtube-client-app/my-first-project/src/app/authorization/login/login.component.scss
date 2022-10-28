@@ -9,10 +9,11 @@
 
 .auth-window {
   width: 350px;
-  height: 250px;
+  min-height: 250px;
   background-color: #f2f2f2;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 10px;
   padding: 30px 20px;
   border-radius: 5px;
@@ -39,7 +40,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 3px;
 }
 
 .login-title,
@@ -47,8 +48,8 @@
   width: 100%;
   font-style: normal;
   font-weight: 400;
-  font-size: 10px;
-  line-height: 12px;
+  font-size: 12px;
+  line-height: 14px;
   color: #828282;
 }
 
@@ -62,23 +63,41 @@
   font-size: 10px;
   line-height: 12px;
   color: #000000;
+
+  &.ng-invalid.ng-touched {
+    border-bottom: 3px solid #EB5757;
+  }
+  &.ng-valid.ng-touched {
+    border-bottom: 3px solid #27AE60;
+  }
+}
+
+.validation-message {
+  font-size: 12px;
+  color: #EB5757;
 }
 
 .auth-btn {
   width: 120px;
   height: 30px;
-  margin-top: 10px;
   align-self: flex-end;
   border: none;
   border-radius: 5px;
   background-color: #2f80ed;
-  filter: drop-shadow(2px 0px 4px #2f80ed);
   color: #ffffff;
   cursor: pointer;
   transition: 0.3s ease-in-out;
+
+  &[disabled] {
+    background-color: #85b9ff;
+    cursor: no-drop;
+  }
+
+  &[disabled]:hover {
+    filter: none;
+  }
 }
 
 .auth-btn:hover {
-  background-color: #85b9ff;
-  filter: none;
+  filter: drop-shadow(2px 0px 4px #2f80ed);
 }

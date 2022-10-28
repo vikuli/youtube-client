@@ -1,26 +1,75 @@
 <main class="main">
-  <div class="auth-window">
+  <form
+    class="auth-window"
+    [formGroup]="form"
+    (ngSubmit)="updateLocalStorage()"
+    (ngSubmit)="authService.logIn()"
+  >
     <h1 class="auth-title">Login</h1>
     <div class="forms-field">
       <div class="login-field">
         <h6 class="login-title">login</h6>
-        <input type="text" class="auth-input login-input" [(ngModel)]="login" />
+        <input
+          type="text"
+          class="auth-input login-input"
+          formControlName="email"
+        />
+        <div
+          class="validation-message"
+          *ngIf="form.get('email')?.invalid && form.get('email')?.touched"
+        >
+          <small *ngIf="form.get('email')?.errors?.required"
+            >Please enter a login email</small
+          >
+          <small *ngIf="form.get('email')?.errors?.email"
+            >The login email is invalid</small
+          >
+        </div>
       </div>
       <div class="password-field">
         <h6 class="password-title">password</h6>
         <input
           type="password"
           class="auth-input password-input"
-          [(ngModel)]="password"
+          formControlName="password"
         />
+        <div
+          class="validation-message"
+          *ngIf="form.get('password')?.invalid && form.get('password')?.touched"
+        >
+          <small *ngIf="form.get('password')?.errors?.required"
+            >Please enter a password<br
+          /></small>
+          <small
+            *ngIf="
+              form.get('password')?.errors?.minlength ||
+              form.get('password')?.errors?.letterCase ||
+              form.get('password')?.errors?.existenceNumbers ||
+              form.get('password')?.errors?.existenceSpecCharacter
+            "
+            >Your password isn't strong enough:<br
+          /></small>
+          <small *ngIf="form.get('password')?.errors?.minlength"
+            >The password must contain at least
+            {{ form.get("password")?.errors?.minlength.requiredLength }}
+            characters<br
+          /></small>
+          <small *ngIf="form.get('password')?.errors?.letterCase"
+            >The password must contain a mixture of uppercase and lowercase
+            letters<br
+          /></small>
+          <small *ngIf="form.get('password')?.errors?.existenceNumbers"
+            >The password must contain a mixture of letters and numbers<br
+          /></small>
+          <small *ngIf="form.get('password')?.errors?.existenceSpecCharacter"
+            >The password must contain at least one special character, e.g., ! @
+            # ? . ,<br
+          /></small>
+        </div>
       </div>
     </div>
-    <button
-      class="auth-btn login-btn"
-      (click)="updateLocalStorage()"
-      (click)="authService.logIn()"
-    >
+    <button class="auth-btn login-btn" type="submit" [disabled]="form.invalid">
       Login
     </button>
-  </div>
+  </form>
 </main>

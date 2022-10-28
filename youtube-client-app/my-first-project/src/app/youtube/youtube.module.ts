@@ -6,6 +6,7 @@ import { AuthGuard } from '../core/guards/auth.guard';
 import { CommonModule } from '@angular/common';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { ErrorComponent } from './error/error.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -29,7 +30,7 @@ const routes: Routes = [
     AdminPageComponent,
     ErrorComponent,
   ],
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
 export class YoutubeModule {}

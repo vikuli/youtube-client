@@ -27,8 +27,8 @@ export class AuthService {
   }
 
   logIn() {
-    this.isAuthorized = this.isAuthorized;
-    this.userName = this.userName;
+    this.isAuthorized = true;
+    this.userName = localStorage.getItem('login') as string;
     this.router.navigate(['/videos']);
   }
 
