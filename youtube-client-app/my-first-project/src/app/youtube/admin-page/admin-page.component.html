@@ -1,24 +1,116 @@
 <main class="main">
-  <form class="admin-window">
+  <form class="admin-window" [formGroup]="form">
     <h1 class="admin-title">Create new card</h1>
     <div class="forms-field">
       <div class="title-field">
         <h6 class="title-field-title">Title</h6>
-        <input type="text" class="admin-input title-input" />
+        <input
+          type="text"
+          class="admin-input title-input"
+          formControlName="title"
+        />
+        <div
+          class="validation-message"
+          *ngIf="form.get('title')?.invalid && form.get('title')?.touched"
+        >
+          <small *ngIf="form.get('title')?.errors?.required"
+            >Please enter a title</small
+          >
+          <small *ngIf="form.get('title')?.errors?.minlength"
+            >The title must contain at least
+            {{ form.get("title")?.errors?.minlength.requiredLength }}
+            characters</small
+          >
+          <small *ngIf="form.get('title')?.errors?.maxlength"
+            >The title must not contain more than
+            {{ form.get("title")?.errors?.maxlength.requiredLength }}
+            characters</small
+          >
+        </div>
       </div>
       <div class="description-field">
         <h6 class="description-title">Discription</h6>
-        <input type="text" class="admin-input description-input" />
+        <input
+          type="text"
+          class="admin-input description-input"
+          formControlName="discription"
+        />
+        <div
+          class="validation-message"
+          *ngIf="
+            form.get('discription')?.invalid && form.get('discription')?.touched
+          "
+        >
+          <small *ngIf="form.get('discription')?.errors?.maxlength"
+            >The discription must not contain more than
+            {{ form.get("discription")?.errors?.maxlength.requiredLength }}
+            characters</small
+          >
+        </div>
       </div>
       <div class="img-field">
         <h6 class="img-title">Img</h6>
-        <input type="text" class="admin-input img-input" />
+        <input
+          type="text"
+          class="admin-input img-input"
+          formControlName="imgLink"
+        />
+        <div
+          class="validation-message"
+          *ngIf="form.get('imgLink')?.invalid && form.get('imgLink')?.touched"
+        >
+          <small *ngIf="form.get('imgLink')?.errors?.required"
+            >Please enter a link to the image</small
+          >
+          <small *ngIf="form.get('imgLink')?.errors?.urlValidity"
+            >The image link is invalid</small
+          >
+        </div>
       </div>
       <div class="link-field">
         <h6 class="link-title">Link video</h6>
-        <input type="text" class="admin-input link-input" />
+        <input
+          type="text"
+          class="admin-input link-input"
+          formControlName="videoLink"
+        />
+        <div
+          class="validation-message"
+          *ngIf="
+            form.get('videoLink')?.invalid && form.get('videoLink')?.touched
+          "
+        >
+          <small *ngIf="form.get('videoLink')?.errors?.required"
+            >Please enter a link to the video</small
+          >
+          <small *ngIf="form.get('videoLink')?.errors?.urlValidity"
+            >The video link is invalid</small
+          >
+        </div>
+      </div>
+      <div class="date-field">
+        <h6 class="date-title">Date</h6>
+        <input
+          type="text"
+          class="admin-input date-input"
+          placeholder="Enter the date in the format YYYY.MM.DD"
+          formControlName="date"
+        />
+        <div
+          class="validation-message"
+          *ngIf="form.get('date')?.invalid && form.get('date')?.touched"
+        >
+          <small *ngIf="form.get('date')?.errors?.required"
+            >Please enter a creation date</small
+          >
+          <small *ngIf="form.get('date')?.errors?.actualDate"
+            >The date is invalid</small
+          >
+        </div>
       </div>
     </div>
-    <button class="admin-btn">Create card</button>
+    <button class="admin-btn" type="submit" [disabled]="form.invalid">
+      Create card
+    </button>
   </form>
 </main>

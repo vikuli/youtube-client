@@ -9,7 +9,7 @@
 
 .admin-window {
   width: 435px;
-  height: 495px;
+  min-height: 575px;
   background-color: #f2f2f2;
   display: flex;
   flex-direction: column;
@@ -37,7 +37,8 @@
 .title-field,
 .description-field,
 .img-field,
-.link-field {
+.link-field,
+.date-field {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -47,7 +48,8 @@
 .title-field-title,
 .description-title,
 .img-title,
-.link-title {
+.link-title,
+.date-title {
   width: 100%;
   font-size: 12px;
   line-height: 14px;
@@ -64,6 +66,18 @@
   background-color: #e0e0e0;
   font-weight: 400;
   color: #000000;
+
+  &.ng-invalid.ng-touched {
+    border-bottom: 3px solid #eb5757;
+  }
+  &.ng-valid.ng-touched {
+    border-bottom: 3px solid #27ae60;
+  }
+}
+
+.validation-message {
+  font-size: 13px;
+  color: #eb5757;
 }
 
 .admin-btn {
@@ -75,13 +89,20 @@
   border: none;
   border-radius: 6px;
   background-color: #2f80ed;
-  filter: drop-shadow(2.5px 0px 5px #2f80ed);
   color: #ffffff;
   cursor: pointer;
   transition: 0.3s ease-in-out;
+
+  &[disabled] {
+    background-color: #85b9ff;
+    cursor: no-drop;
+  }
+
+  &[disabled]:hover {
+    filter: none;
+  }
 }
 
 .admin-btn:hover {
-  background-color: #85b9ff;
-  filter: none;
+  filter: drop-shadow(2px 0px 4px #2f80ed);
 }
