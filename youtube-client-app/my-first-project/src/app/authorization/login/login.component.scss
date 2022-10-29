@@ -65,16 +65,16 @@
   color: #000000;
 
   &.ng-invalid.ng-touched {
-    border-bottom: 3px solid #EB5757;
+    border-bottom: 3px solid #eb5757;
   }
   &.ng-valid.ng-touched {
-    border-bottom: 3px solid #27AE60;
+    border-bottom: 3px solid #27ae60;
   }
 }
 
 .validation-message {
   font-size: 12px;
-  color: #EB5757;
+  color: #eb5757;
 }
 
 .auth-btn {
@@ -88,6 +88,10 @@
   cursor: pointer;
   transition: 0.3s ease-in-out;
 
+  &:hover {
+    filter: drop-shadow(2px 0px 4px #2f80ed);
+  }
+
   &[disabled] {
     background-color: #85b9ff;
     cursor: no-drop;
@@ -96,8 +100,4 @@
   &[disabled]:hover {
     filter: none;
   }
-}
-
-.auth-btn:hover {
-  filter: drop-shadow(2px 0px 4px #2f80ed);
 }

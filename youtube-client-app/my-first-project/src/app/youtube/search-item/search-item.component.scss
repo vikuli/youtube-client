@@ -27,6 +27,10 @@
   border-radius: 5px;
   padding: 20px;
   transition: 0.3s ease-in-out;
+
+  &:hover {
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25));
+  }
 }
 
 .card-content {
@@ -92,12 +96,8 @@
   color: #ffffff;
   cursor: pointer;
   transition: 0.3s ease-in-out;
-}
 
-.card:hover {
-  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25));
-}
-
-.card-button:hover {
-  filter: drop-shadow(2px 0px 4px #2f80ed);
+  &:hover {
+    filter: drop-shadow(2px 0px 4px #2f80ed);
+  }
 }

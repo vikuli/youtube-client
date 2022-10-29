@@ -93,6 +93,10 @@
   cursor: pointer;
   transition: 0.3s ease-in-out;
 
+  &:hover {
+    filter: drop-shadow(2px 0px 4px #2f80ed);
+  }
+
   &[disabled] {
     background-color: #85b9ff;
     cursor: no-drop;
@@ -101,8 +105,4 @@
   &[disabled]:hover {
     filter: none;
   }
-}
-
-.admin-btn:hover {
-  filter: drop-shadow(2px 0px 4px #2f80ed);
 }
