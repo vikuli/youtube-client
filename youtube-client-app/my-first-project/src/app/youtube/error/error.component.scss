@@ -7,24 +7,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
 
-.error {
-  width: 360px;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  gap: 25px;
-}
+  .error {
+    width: 360px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
 
-.error-logo {
-  width: 100px;
-}
+    .error-logo {
+      width: 100px;
+    }
 
-.error-message {
-  font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 28px;
-  color: #828282;
+    .error-message {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 28px;
+      color: #828282;
+    }
+  }
 }

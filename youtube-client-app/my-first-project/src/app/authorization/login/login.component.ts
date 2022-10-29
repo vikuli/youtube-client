@@ -34,6 +34,5 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('login', this.form.value.email);
       localStorage.setItem('password', this.form.value.password);
     }
-    console.log(this.form);
   }
 }
