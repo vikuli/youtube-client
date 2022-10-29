@@ -55,10 +55,10 @@
     color: #ffffff;
     cursor: pointer;
     transition: 0.3s ease-in-out;
-  }
 
-  .search-button:hover {
-    filter: drop-shadow(2px 0px 4px #2f80ed);
+    &:hover {
+      filter: drop-shadow(2px 0px 4px #2f80ed);
+    }
   }
 }
 
@@ -76,10 +76,10 @@
     width: 100%;
     height: 100%;
   }
-}
 
-.setting-button:hover {
-  filter: drop-shadow(2px 0px 4px #2f80ed);
+  &:hover {
+    filter: drop-shadow(2px 0px 4px #2f80ed);
+  }
 }
 
 .login {
@@ -98,10 +98,10 @@
     background-color: #ffffff;
     cursor: pointer;
     transition: 0.3s ease-in-out;
-  }
 
-  .avatar:hover {
-    filter: drop-shadow(2px 2px 4px rgba(47, 128, 237, 0.25));
+    &:hover {
+      filter: drop-shadow(2px 2px 4px rgba(47, 128, 237, 0.25));
+    }
   }
 
   .logout {
@@ -116,13 +116,13 @@
     img {
       width: 100%;
     }
+
+    &:hover {
+      filter: drop-shadow(1px 1px 3px #ff414b70);
+    }
   }
 
-  .logout:hover {
-    filter: drop-shadow(1px 1px 3px #ff414b70);
-  }
-
- .admin {
+  .admin {
     width: 32px;
     height: 32px;
     padding: 0;
@@ -134,11 +134,11 @@
     img {
       width: 100%;
     }
- }
 
- .admin:hover {
-   filter: drop-shadow(2px 2px 4px rgba(47, 128, 237, 0.25));
- }
+    &:hover {
+      filter: drop-shadow(2px 2px 4px rgba(47, 128, 237, 0.25));
+    }
+  }
 }
 
 .settings {
@@ -163,7 +163,7 @@
     cursor: pointer;
   }
 
-  .sort-options-item:active {
+  &:active {
     text-decoration-line: underline;
   }
 
