@@ -38,37 +38,55 @@ export class HeaderComponent {
 
   updateSortOrderByDate(sortOrderByDate: string) {
     this.sortOrderByView = SortOrder.default;
-    if (sortOrderByDate === SortOrder.default)
-      this.sortOrderByDate = SortOrder.ASC;
-    if (sortOrderByDate === SortOrder.ASC)
-      this.sortOrderByDate = SortOrder.DESC;
-    if (sortOrderByDate === SortOrder.DESC)
-      this.sortOrderByDate = SortOrder.ASC;
+    switch (sortOrderByDate) {
+      case SortOrder.default:
+        this.sortOrderByDate = SortOrder.ASC;
+        break;
+      case SortOrder.ASC:
+        this.sortOrderByDate = SortOrder.DESC;
+        break;
+      case SortOrder.DESC:
+        this.sortOrderByDate = SortOrder.ASC;
+        break;
+    }
   }
 
   updateSortOrderByView(sortOrderByView: string) {
     this.sortOrderByDate = SortOrder.default;
-    if (sortOrderByView === SortOrder.default)
-      this.sortOrderByView = SortOrder.ASC;
-    if (sortOrderByView === SortOrder.ASC)
-      this.sortOrderByView = SortOrder.DESC;
-    if (sortOrderByView === SortOrder.DESC)
-      this.sortOrderByView = SortOrder.ASC;
+    switch (sortOrderByView) {
+      case SortOrder.default:
+        this.sortOrderByView = SortOrder.ASC;
+        break;
+      case SortOrder.ASC:
+        this.sortOrderByView = SortOrder.DESC;
+        break;
+      case SortOrder.DESC:
+        this.sortOrderByView = SortOrder.ASC;
+        break;
+    }
   }
 
   updateArrowForDate(sortOrderByDate: string) {
     this.arrowForView = '';
-    if (sortOrderByDate === SortOrder.ASC)
-      this.arrowForDate = sortingSymbolASC;
-    if (sortOrderByDate === SortOrder.DESC)
-      this.arrowForDate = sortingSymbolDESC;
+    switch (sortOrderByDate) {
+      case SortOrder.ASC:
+        this.arrowForDate = sortingSymbolASC;
+        break;
+      case SortOrder.DESC:
+        this.arrowForDate = sortingSymbolDESC;
+        break;
+    }
   }
 
   updateArrowForView(sortOrderByView: string) {
     this.arrowForDate = '';
-    if (sortOrderByView === SortOrder.ASC)
-      this.arrowForView = sortingSymbolASC;
-    if (sortOrderByView === SortOrder.DESC)
-      this.arrowForView = sortingSymbolDESC;
+    switch (sortOrderByView) {
+      case SortOrder.ASC:
+        this.arrowForView = sortingSymbolASC;
+        break;
+      case SortOrder.DESC:
+        this.arrowForView = sortingSymbolDESC;
+        break;
+    }
   }
 }

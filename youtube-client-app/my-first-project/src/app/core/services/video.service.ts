@@ -30,22 +30,32 @@ export class VideoService {
 
   getSortOrderByDate(sortOrderByDate: string) {
     this.sortOrderByView = SortOrder.default;
-    if (sortOrderByDate === SortOrder.default)
-      this.sortOrderByDate = SortOrder.ASC;
-    if (sortOrderByDate === SortOrder.ASC)
-      this.sortOrderByDate = SortOrder.DESC;
-    if (sortOrderByDate === SortOrder.DESC)
-      this.sortOrderByDate = SortOrder.ASC;
+    switch (sortOrderByDate) {
+      case SortOrder.default:
+        this.sortOrderByDate = SortOrder.ASC;
+        break;
+      case SortOrder.ASC:
+        this.sortOrderByDate = SortOrder.DESC;
+        break;
+      case SortOrder.DESC:
+        this.sortOrderByDate = SortOrder.ASC;
+        break;
+    }
   }
 
   getSortOrderByView(sortOrderByView: string) {
     this.sortOrderByDate = SortOrder.default;
-    if (sortOrderByView === SortOrder.default)
-      this.sortOrderByView = SortOrder.ASC;
-    if (sortOrderByView === SortOrder.ASC)
-      this.sortOrderByView = SortOrder.DESC;
-    if (sortOrderByView === SortOrder.DESC)
-      this.sortOrderByView = SortOrder.ASC;
+    switch (sortOrderByView) {
+      case SortOrder.default:
+        this.sortOrderByView = SortOrder.ASC;
+        break;
+      case SortOrder.ASC:
+        this.sortOrderByView = SortOrder.DESC;
+        break;
+      case SortOrder.DESC:
+        this.sortOrderByView = SortOrder.ASC;
+        break;
+    }
   }
 
   getAdditionalRequest(additionalRequest: string) {
