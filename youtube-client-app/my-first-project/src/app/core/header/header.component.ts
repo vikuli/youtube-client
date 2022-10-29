@@ -32,7 +32,7 @@ export class HeaderComponent {
     public authService: AuthService
   ) {}
 
-  showSettings() {
+  changeSettingsVisibility() {
     this.isShowed = !this.isShowed;
   }
 
