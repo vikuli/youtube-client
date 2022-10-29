@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { SortOrder } from 'src/app/shared/utils/sort-order';
+import {
+  sortingSymbolASC,
+  sortingSymbolDESC,
+} from 'src/app/shared/utils/special-characters';
 import { AuthService } from '../services/auth.service';
 import { VideoService } from '../services/video.service';
 
@@ -25,11 +29,8 @@ export class HeaderComponent {
 
   constructor(
     public videoService: VideoService,
-    public authService: AuthService,
-  ) {
-    this.arrowForDate = this.arrowForDate;
-    this.arrowForView = this.arrowForView;
-  }
+    public authService: AuthService
+  ) {}
 
   showSettings() {
     this.isShowed = !this.isShowed;
@@ -57,13 +58,17 @@ export class HeaderComponent {
 
   updateArrowForDate(sortOrderByDate: string) {
     this.arrowForView = '';
-    if (sortOrderByDate === SortOrder.ASC) this.arrowForDate = '↑';
-    if (sortOrderByDate === SortOrder.DESC) this.arrowForDate = '↓';
+    if (sortOrderByDate === SortOrder.ASC)
+      this.arrowForDate = sortingSymbolASC;
+    if (sortOrderByDate === SortOrder.DESC)
+      this.arrowForDate = sortingSymbolDESC;
   }
 
   updateArrowForView(sortOrderByView: string) {
     this.arrowForDate = '';
-    if (sortOrderByView === SortOrder.ASC) this.arrowForView = '↑';
-    if (sortOrderByView === SortOrder.DESC) this.arrowForView = '↓';
+    if (sortOrderByView === SortOrder.ASC)
+      this.arrowForView = sortingSymbolASC;
+    if (sortOrderByView === SortOrder.DESC)
+      this.arrowForView = sortingSymbolDESC;
   }
 }
