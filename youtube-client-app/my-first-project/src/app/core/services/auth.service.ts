@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
   providedIn: 'root',
@@ -9,26 +10,37 @@ export class AuthService {
 
   userName: string = 'Your Name';
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    public localStorageService: LocalStorageService
+  ) {
     this.isAuthorized = this.isAuthorized;
     this.userName = this.userName;
   }
 
   updateUserName() {
-    return localStorage.getItem('login') && localStorage.getItem('password')
-      ? (this.userName = localStorage.getItem('login') as string)
-      : this.userName;
+    const login = this.localStorageService.getLogin();
+    const password = this.localStorageService.getPassword();
+    if (login && password) {
+      this.userName = login;
+      return login;
+    }
+    return this.userName
   }
 
   showLogoutButton() {
-    return localStorage.getItem('login') && localStorage.getItem('password')
-      ? (this.isAuthorized = true)
-      : this.isAuthorized;
+    const login = this.localStorageService.getLogin();
+    const password = this.localStorageService.getPassword();
+    if (login && password) {
+      this.isAuthorized = true;
+      return true;
+    }
+    return this.isAuthorized;
   }
 
   logIn() {
     this.isAuthorized = true;
-    this.userName = localStorage.getItem('login') as string;
+    this.userName = this.localStorageService.getLogin() as string;
     this.router.navigate(['/videos']);
   }
 
