@@ -32,13 +32,13 @@
         </button>
       </div>
       <div class="login">
-        <p class="user-name">{{ authService.updateUserName().split('@')[0] }}</p>
+        <p class="user-name">{{ authService.userName }}</p>
         <img src="./assets/icon/avatar-icon.svg" alt="avatar" class="avatar" />
         <button class="admin" routerLink="/admin">
           <img src="./assets/icon/add-video.png" alt="add-video" />
         </button>
         <button
-          *ngIf="authService.showLogoutButton()"
+          *ngIf="authService.isAuthorized"
           (click)="authService.logOut()"
           class="logout"
         >

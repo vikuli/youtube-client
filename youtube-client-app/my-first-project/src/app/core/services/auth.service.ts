@@ -14,18 +14,19 @@ export class AuthService {
     private router: Router,
     public localStorageService: LocalStorageService
   ) {
-    this.isAuthorized = this.isAuthorized;
-    this.userName = this.userName;
+    this.isAuthorized = this.showLogoutButton();
+    this.userName = this.updateUserName();
   }
 
   updateUserName() {
     const login = this.localStorageService.getLogin();
     const password = this.localStorageService.getPassword();
     if (login && password) {
-      this.userName = login;
-      return login;
+      const formattedLogin = login.split('@')[0];
+      this.userName = formattedLogin;
+      return formattedLogin;
     }
-    return this.userName
+    return this.userName;
   }
 
   showLogoutButton() {
@@ -39,8 +40,11 @@ export class AuthService {
   }
 
   logIn() {
+    const formattedLogin = (
+      this.localStorageService.getLogin() as string
+    ).split('@')[0];
     this.isAuthorized = true;
-    this.userName = this.localStorageService.getLogin() as string;
+    this.userName = formattedLogin;
     this.router.navigate(['/videos']);
   }
 
