@@ -4,14 +4,8 @@ import { VideoDescriptionService } from 'src/app/youtube/services/video-descript
 import { VideoService } from 'src/app/core/services/video.service';
 import { Video } from 'src/app/youtube/data/interfaces';
 import { SortOrder } from 'src/app/shared/utils/sort-order';
-import {
-  sortByDateASC,
-  sortByDateDESC,
-} from 'src/app/shared/utils/sort-by-date';
-import {
-  sortByViewASC,
-  sortByViewDESC,
-} from 'src/app/shared/utils/sort-by-view';
+import { sortByDate } from 'src/app/shared/utils/sort-by-date';
+import { sortByView } from 'src/app/shared/utils/sort-by-view';
 
 @Component({
   selector: 'app-search-item',
@@ -25,14 +19,14 @@ export class SearchItemsComponent {
   constructor(
     public videoService: VideoService,
     public videoDescriptionService: VideoDescriptionService,
-    private router: Router,
+    private router: Router
   ) {}
 
   showVideos() {
     this.searchResult = this.videoService.cards.filter((card) =>
       card.snippet.title
         .toLowerCase()
-        .includes(this.videoService.request.toLowerCase()),
+        .includes(this.videoService.request.toLowerCase())
     );
     if (this.videoService.sortOrderByDate !== SortOrder.default)
       return this.sortByDate();
@@ -46,35 +40,23 @@ export class SearchItemsComponent {
     return this.searchResult.filter((card) =>
       card.snippet.title
         .toLowerCase()
-        .includes(this.videoService.additionalRequest.toLowerCase()),
+        .includes(this.videoService.additionalRequest.toLowerCase())
     );
   }
 
   sortByDate() {
-    if (this.videoService.sortOrderByDate === SortOrder.ASC) {
-      if (this.videoService.additionalRequest)
-        this.searchResult = sortByDateASC(this.filterVideo());
-      this.searchResult = sortByDateASC(this.searchResult);
-    }
-    if (this.videoService.sortOrderByDate === SortOrder.DESC) {
-      if (this.videoService.additionalRequest)
-        this.searchResult = sortByDateDESC(this.filterVideo());
-      this.searchResult = sortByDateDESC(this.searchResult);
-    }
+    this.searchResult = sortByDate(
+      this.videoService.sortOrderByDate,
+      this.filterVideo()
+    );
     return this.searchResult;
   }
 
   sortByView() {
-    if (this.videoService.sortOrderByView === SortOrder.ASC) {
-      if (this.videoService.additionalRequest)
-        this.searchResult = sortByViewASC(this.filterVideo());
-      this.searchResult = sortByViewASC(this.searchResult);
-    }
-    if (this.videoService.sortOrderByView === SortOrder.DESC) {
-      if (this.videoService.additionalRequest)
-        this.searchResult = sortByViewDESC(this.filterVideo());
-      this.searchResult = sortByViewDESC(this.searchResult);
-    }
+    this.searchResult = sortByView(
+      this.videoService.sortOrderByView,
+      this.filterVideo()
+    );
     return this.searchResult;
   }
 
