@@ -3,6 +3,11 @@ export interface PageInfo {
   resultsPerPage: number;
 }
 
+export interface Id {
+  kind: string;
+  videoId: string;
+}
+
 export interface Statistics {
   viewCount: string;
   likeCount: string;
@@ -72,7 +77,6 @@ export interface Snippet {
 export interface Statistics {
   viewCount: string;
   likeCount: string;
-  dislikeCount: string;
   favoriteCount: string;
   commentCount: string;
 }
@@ -80,7 +84,7 @@ export interface Statistics {
 export interface Video {
   kind: string;
   etag: string;
-  id: string;
+  id: Id | string;
   snippet: Snippet;
   statistics: Statistics;
 }

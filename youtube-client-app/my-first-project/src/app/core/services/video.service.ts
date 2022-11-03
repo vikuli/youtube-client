@@ -17,13 +17,6 @@ export class VideoService {
 
   additionalRequest: string = '';
 
-  constructor() {
-    this.request = this.request;
-    this.sortOrderByDate = this.sortOrderByDate;
-    this.sortOrderByView = this.sortOrderByView;
-    this.additionalRequest = this.additionalRequest;
-  }
-
   getRequest(request: string) {
     this.request = request;
   }

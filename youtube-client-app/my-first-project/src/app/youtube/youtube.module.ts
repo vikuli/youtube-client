@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { ErrorComponent } from './error/error.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -30,7 +31,7 @@ const routes: Routes = [
     AdminPageComponent,
     ErrorComponent,
   ],
-  imports: [CommonModule, ReactiveFormsModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule.forChild(routes), HttpClientModule],
   exports: [RouterModule],
 })
 export class YoutubeModule {}
