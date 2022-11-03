@@ -1,31 +1,24 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { VideoService } from 'src/app/core/services/video.service';
-import { apiKey } from '../data/api/api-key';
-import { Data, Id, Video } from '../data/interfaces';
+import { Observable } from 'rxjs';
+import { apiKey, apiKey2 } from '../data/api/api-key';
+import { Data } from '../data/interfaces';
 
 @Injectable({
   providedIn: 'root',
 })
 export class YoutubeService {
-  video: Video[] = [];
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient, public videoService: VideoService) {}
+  fetchVideos(request: string): Observable<Data> {
+    return this.http.get<Data>(
+      `https://www.googleapis.com/youtube/v3/search?key=${apiKey2}&type=video&part=snippet&maxResults=15&q=${request}`
+    );
+  }
 
-  fetchVideos() {
-    let videosID: string[] | string = [];
-    this.http
-      .get<Data>(
-        `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&type=video&part=snippet&maxResults=15&q=${this.videoService.request}`
-      )
-      .subscribe((videos) => {
-        videos.items.forEach((el) =>
-          (videosID as string[]).push((el.id as Id).videoId)
-        );
-        videosID = (videosID as string[]).join(',');
-        this.http.get<Data>(
-          `https://www.googleapis.com/youtube/v3/videos?key=${apiKey}&id=${videosID}&part=snippet,statistics`
-        );
-      });
+  displayVideos(videosID: string): Observable<Data> {
+    return this.http.get<Data>(
+      `https://www.googleapis.com/youtube/v3/videos?key=${apiKey2}&id=${videosID}&part=snippet,statistics`
+    );
   }
 }

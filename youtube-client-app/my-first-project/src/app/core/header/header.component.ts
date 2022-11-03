@@ -5,7 +5,7 @@ import {
   sortingSymbolDESC,
 } from 'src/app/shared/utils/special-characters';
 import { AuthService } from '../services/auth.service';
-import { VideoService } from '../services/video.service';
+import { VideoService } from '../../youtube/services/video.service';
 
 @Component({
   selector: 'app-header',

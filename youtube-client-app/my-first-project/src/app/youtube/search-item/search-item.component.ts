@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { VideoDescriptionService } from 'src/app/youtube/services/video-description.service';
-import { VideoService } from 'src/app/core/services/video.service';
+import { VideoService } from 'src/app/youtube/services/video.service';
 import { Video } from 'src/app/youtube/data/interfaces';
 import { SortOrder } from 'src/app/shared/utils/sort-order';
 import { sortByDate } from 'src/app/shared/utils/sort-by-date';

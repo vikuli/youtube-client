@@ -1,10 +1,19 @@
 <main class="main" *ngIf="videoService.request">
-  <h1 class="not-found-message" *ngIf="!showVideos().length">
+  <h1
+    class="status-message"
+    *ngIf="!videoService.searchResult.length && !videoService.loading"
+  >
     Sorry we didn't find anything :(
+  </h1>
+  <h1
+    class="status-message"
+    *ngIf="!videoService.searchResult.length && videoService.loading"
+  >
+    Loading...
   </h1>
   <div
     class="card"
-    *ngFor="let card of showVideos()"
+    *ngFor="let card of videoService.searchResult"
     [style.border-bottom-color]="videoDescriptionService.cardBorderColor(card)"
   >
     <div class="card-content">
