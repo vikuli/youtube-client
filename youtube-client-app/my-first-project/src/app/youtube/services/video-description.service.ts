@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Video } from '../data/interfaces';
-import { data } from '../data/videos-data';
+import { VideoService } from './video.service';
 
 @Injectable()
 export class VideoDescriptionService {
-  cards: Video[] = data.items;
-
   color: string = '';
 
+  constructor(public videoService: VideoService) {}
+
   getVideoByID(id: string) {
-    return this.cards.find((card) => card.id === id);
+    return this.videoService.searchResult.find((card) => card.id === id);
   }
 
   cardBorderColor(card: Video) {
     const currentDate: Date = new Date();
     const publicationDate = new Date(card.snippet.publishedAt);
     let dayFromPublication = Math.floor(
-      (currentDate.getTime() - publicationDate.getTime()) / 1000 / 60 / 60 / 24,
+      (currentDate.getTime() - publicationDate.getTime()) / 1000 / 60 / 60 / 24
     );
     let monthFromPublication =
       currentDate.getMonth() -
