@@ -13,15 +13,10 @@
             autofocus
             autocomplete="off"
             [(ngModel)]="request"
-          />
-          <button
-            class="search-button"
-            (click)="videoService.getRequest(request)"
-            (click)="videoService.displayVideos()"
+            (input)="videoService.getRequest(request)"
+            (input)="videoService.displayVideos()"
             routerLink="/videos"
-          >
-            search
-          </button>
+          />
         </div>
         <button class="setting-button" (click)="changeSettingsVisibility()">
           <img
@@ -54,6 +49,7 @@
           (click)="videoService.getSortOrderByDate(sortOrderByDate)"
           (click)="updateSortOrderByDate(sortOrderByDate)"
           (click)="updateArrowForDate(sortOrderByDate)"
+          (click)="videoService.sortVideo()"
         >
           date {{ arrowForDate }}
         </li>
@@ -62,6 +58,7 @@
           (click)="videoService.getSortOrderByView(sortOrderByView)"
           (click)="updateSortOrderByView(sortOrderByView)"
           (click)="updateArrowForView(sortOrderByView)"
+          (click)="videoService.sortVideo()"
         >
           count of views {{ arrowForView }}
         </li>
@@ -71,7 +68,7 @@
             type="text"
             class="search-in-results"
             [(ngModel)]="additionalRequest"
-            (input)="videoService.getAdditionalRequest(additionalRequest)"
+            (input)="videoService.filterVideo(additionalRequest)"
           />
         </li>
       </ul>

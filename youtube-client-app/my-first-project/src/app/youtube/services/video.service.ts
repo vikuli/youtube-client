@@ -1,4 +1,8 @@
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs';
+import { filterVideo } from 'src/app/shared/utils/filter-video';
+import { sortByDate } from 'src/app/shared/utils/sort-by-date';
+import { sortByView } from 'src/app/shared/utils/sort-by-view';
 import { SortOrder } from 'src/app/shared/utils/sort-order';
 import { YoutubeService } from 'src/app/youtube/services/youtube.service';
 import { Id, Video } from '../data/interfaces';
@@ -14,6 +18,7 @@ export class VideoService {
   sortOrderByView: string = SortOrder.default;
   additionalRequest: string = '';
   searchResult: Video[] = [];
+  filteredSearchResult: Video[] = [];
   loading: boolean = false;
 
   constructor(public youtubeService: YoutubeService) {}
@@ -25,16 +30,31 @@ export class VideoService {
   displayVideos() {
     this.loading = true;
     let videosID: string[] | string = [];
-    this.youtubeService.fetchVideos(this.request).subscribe((videos) => {
-      videos.items.forEach((el) =>
-        (videosID as string[]).push((el.id as Id).videoId)
-      );
-      videosID = (videosID as string[]).join(',');
-      this.youtubeService.displayVideos(videosID).subscribe((videos) => {
-        this.searchResult = videos.items;
-        this.loading = false;
+    this.youtubeService
+      .fetchVideos(this.request)
+      .pipe(map((el) => el.items))
+      .subscribe((videos) => {
+        videos.forEach((el) =>
+          (videosID as string[]).push((el.id as Id).videoId)
+        );
+        videosID = (videosID as string[]).join(',');
+
+        this.youtubeService
+          .displayVideos(videosID)
+          .pipe(map((el) => el.items))
+          .subscribe((videos) => {
+            this.searchResult = videos;
+            if (!this.additionalRequest) {
+              this.filteredSearchResult = this.searchResult;
+            } else {
+              this.filteredSearchResult = filterVideo(
+                this.searchResult,
+                this.additionalRequest
+              );
+            }
+            this.loading = false;
+          });
       });
-    });
   }
 
   getSortOrderByDate(sortOrderByDate: string) {
@@ -67,7 +87,26 @@ export class VideoService {
     }
   }
 
-  getAdditionalRequest(additionalRequest: string) {
+  filterVideo(additionalRequest: string) {
     this.additionalRequest = additionalRequest;
+    this.filteredSearchResult = filterVideo(
+      this.searchResult,
+      additionalRequest
+    );
+  }
+
+  sortVideo() {
+    if (this.sortOrderByDate !== SortOrder.default) {
+      this.searchResult = sortByDate(
+        this.sortOrderByDate,
+        this.filteredSearchResult
+      );
+    }
+    if (this.sortOrderByView !== SortOrder.default) {
+      this.searchResult = sortByView(
+        this.sortOrderByView,
+        this.filteredSearchResult
+      );
+    }
   }
 }
