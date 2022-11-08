@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { SortOrder } from 'src/app/shared/utils/sort-order';
 import {
   sortingSymbolASC,
@@ -6,31 +6,35 @@ import {
 } from 'src/app/shared/utils/special-characters';
 import { AuthService } from '../services/auth.service';
 import { VideoService } from '../../youtube/services/video.service';
+import { debounceTime, fromEvent } from 'rxjs';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements AfterViewInit {
   isShowed: boolean = true;
-
   request: string = '';
-
   sortOrderByDate: string = SortOrder.default;
-
   sortOrderByView: string = SortOrder.default;
-
   arrowForDate: string = '';
-
   arrowForView: string = '';
-
   additionalRequest: string = '';
+  @ViewChild('searchInput') searchInput!: ElementRef;
 
   constructor(
     public videoService: VideoService,
     public authService: AuthService
   ) {}
+
+  ngAfterViewInit(): void {
+    fromEvent(this.searchInput.nativeElement, 'input')
+      .pipe(debounceTime(1500))
+      .subscribe(() => {
+        this.videoService.displayVideos();
+      });
+  }
 
   changeSettingsVisibility() {
     this.isShowed = !this.isShowed;

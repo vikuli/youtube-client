@@ -7,6 +7,7 @@
         </div>
         <div class="search-field">
           <input
+            #searchInput
             type="text"
             placeholder="What are you want to find out?"
             class="search-input"
@@ -14,8 +15,6 @@
             autocomplete="off"
             [(ngModel)]="request"
             (input)="videoService.getRequest(request)"
-            (input)="videoService.displayVideos()"
-            routerLink="/videos"
           />
         </div>
         <button class="setting-button" (click)="changeSettingsVisibility()">
@@ -49,7 +48,7 @@
           (click)="videoService.getSortOrderByDate(sortOrderByDate)"
           (click)="updateSortOrderByDate(sortOrderByDate)"
           (click)="updateArrowForDate(sortOrderByDate)"
-          (click)="videoService.sortVideo()"
+          (click)="videoService.sortVideoByDate()"
         >
           date {{ arrowForDate }}
         </li>
@@ -58,7 +57,7 @@
           (click)="videoService.getSortOrderByView(sortOrderByView)"
           (click)="updateSortOrderByView(sortOrderByView)"
           (click)="updateArrowForView(sortOrderByView)"
-          (click)="videoService.sortVideo()"
+          (click)="videoService.sortVideoByView()"
         >
           count of views {{ arrowForView }}
         </li>

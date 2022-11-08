@@ -1,4 +1,7 @@
-<main class="main" *ngIf="videoService.request"> <!--*ngIf='filteredSearchResult.length'-->
+<main
+  class="main"
+  *ngIf="videoService.request.trim() && videoService.request.length > 2"
+>
   <h1
     class="status-message"
     *ngIf="!videoService.filteredSearchResult.length && !videoService.loading"
