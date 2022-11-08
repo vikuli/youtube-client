@@ -1,2 +1,2 @@
 export const sortingSymbolASC = '↑';
-export const sortingSymbolDESC= '↓';
+export const sortingSymbolDESC = '↓';

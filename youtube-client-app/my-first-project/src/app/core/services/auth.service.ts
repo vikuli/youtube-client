@@ -12,7 +12,7 @@ export class AuthService {
 
   constructor(
     private router: Router,
-    public localStorageService: LocalStorageService
+    public localStorageService: LocalStorageService,
   ) {
     this.isAuthorized = this.showLogoutButton();
     this.userName = this.updateUserName();

@@ -16,7 +16,7 @@ export class VideoDescriptionService {
     const currentDate: Date = new Date();
     const publicationDate = new Date(card.snippet.publishedAt);
     let dayFromPublication = Math.floor(
-      (currentDate.getTime() - publicationDate.getTime()) / 1000 / 60 / 60 / 24
+      (currentDate.getTime() - publicationDate.getTime()) / 1000 / 60 / 60 / 24,
     );
     let monthFromPublication =
       currentDate.getMonth() -

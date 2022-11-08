@@ -20,9 +20,9 @@ export class VideoDescriptionComponent implements OnInit {
 
   ngOnInit(): void {
     this.rout.params.subscribe((params: Params) => {
-      if (this.videoDescriptionService.getVideoByID(params['id'])) {
+      if (this.videoDescriptionService.getVideoByID(params.id)) {
         this.card = this.videoDescriptionService.getVideoByID(
-          params['id'],
+          params.id,
         ) as Video;
       } else {
         this.router.navigate(['/error']);

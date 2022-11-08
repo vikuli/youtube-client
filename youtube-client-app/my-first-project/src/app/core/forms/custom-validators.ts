@@ -13,7 +13,7 @@ export class CustomValidators {
   }
 
   static existenceNumbers(
-    control: FormControl
+    control: FormControl,
   ): { [key: string]: boolean } | null {
     if (control.value && !/[0-9]/g.test(control.value)) {
       return { existenceNumbers: true };
@@ -22,7 +22,7 @@ export class CustomValidators {
   }
 
   static existenceSpecCharacter(
-    control: FormControl
+    control: FormControl,
   ): { [key: string]: boolean } | null {
     if (
       control.value &&

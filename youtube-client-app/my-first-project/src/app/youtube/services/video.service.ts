@@ -13,11 +13,17 @@ import { Id, Video } from '../data/interfaces';
 })
 export class VideoService {
   request: string = '';
+
   sortOrderByDate: string = SortOrder.default;
+
   sortOrderByView: string = SortOrder.default;
+
   additionalRequest: string = '';
+
   searchResult: Video[] = [];
+
   filteredSearchResult: Video[] = [];
+
   loading: boolean = false;
 
   constructor(private router: Router, public youtubeService: YoutubeService) {}
@@ -33,24 +39,23 @@ export class VideoService {
       this.youtubeService
         .fetchVideos(this.request)
         .pipe(map((el) => el.items))
-        .subscribe((videos) => {
-          console.log(videos);
-          videos.forEach((el) =>
-            (videosID as string[]).push((el.id as Id).videoId)
+        .subscribe((searchVideos) => {
+          searchVideos.forEach((el) =>
+            (videosID as string[]).push((el.id as Id).videoId),
           );
           videosID = (videosID as string[]).join(',');
 
           this.youtubeService
             .displayVideos(videosID)
             .pipe(map((el) => el.items))
-            .subscribe((videos) => {
-              this.searchResult = videos;
+            .subscribe((resultVideos) => {
+              this.searchResult = resultVideos;
               if (!this.additionalRequest) {
                 this.filteredSearchResult = this.searchResult;
               } else {
                 this.filteredSearchResult = filterVideo(
                   this.searchResult,
-                  this.additionalRequest
+                  this.additionalRequest,
                 );
               }
               this.loading = false;
@@ -94,7 +99,7 @@ export class VideoService {
     this.additionalRequest = additionalRequest;
     this.filteredSearchResult = filterVideo(
       this.searchResult,
-      additionalRequest
+      additionalRequest,
     );
   }
 
@@ -102,7 +107,7 @@ export class VideoService {
     if (this.sortOrderByDate !== SortOrder.default) {
       this.filteredSearchResult = sortByDate(
         this.sortOrderByDate,
-        this.filteredSearchResult
+        this.filteredSearchResult,
       );
     }
   }
@@ -111,7 +116,7 @@ export class VideoService {
     if (this.sortOrderByView !== SortOrder.default) {
       this.filteredSearchResult = sortByView(
         this.sortOrderByView,
-        this.filteredSearchResult
+        this.filteredSearchResult,
       );
     }
   }

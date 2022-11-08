@@ -15,17 +15,24 @@ import { debounceTime, fromEvent } from 'rxjs';
 })
 export class HeaderComponent implements AfterViewInit {
   isShowed: boolean = true;
+
   request: string = '';
+
   sortOrderByDate: string = SortOrder.default;
+
   sortOrderByView: string = SortOrder.default;
+
   arrowForDate: string = '';
+
   arrowForView: string = '';
+
   additionalRequest: string = '';
+
   @ViewChild('searchInput') searchInput!: ElementRef;
 
   constructor(
     public videoService: VideoService,
-    public authService: AuthService
+    public authService: AuthService,
   ) {}
 
   ngAfterViewInit(): void {

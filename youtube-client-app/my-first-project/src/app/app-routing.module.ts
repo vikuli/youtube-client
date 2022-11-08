@@ -13,7 +13,7 @@ const routes: Routes = [
     path: 'authorization',
     loadChildren: () =>
       import('./authorization/authorization.module').then(
-        (mod) => mod.AuthorizationModule
+        (mod) => mod.AuthorizationModule,
       ),
   },
   { path: '**', redirectTo: '/error' },

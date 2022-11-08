@@ -14,7 +14,7 @@ export class SearchItemsComponent {
   constructor(
     public videoService: VideoService,
     public videoDescriptionService: VideoDescriptionService,
-    private router: Router
+    private router: Router,
   ) {}
 
   goToDescription(card: Video) {
